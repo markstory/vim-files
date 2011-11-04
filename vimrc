@@ -2,6 +2,7 @@ set nocompatible
 
 " Include pathogen
 call pathogen#infect()
+call pathogen#helptags()
 
 set number
 set ruler
