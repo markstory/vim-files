@@ -1,0 +1,54 @@
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule "bundle/jshint"]
+	path = bundle/jshint
+	url = git://github.com/wookiehangover/jshint.vim.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git://github.com/wycats/nerdtree.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git://github.com/ddollar/nerdcommenter.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "bundle/vividchalk"]
+	path = bundle/vividchalk
+	url = git://github.com/tpope/vim-vividchalk.git
+[submodule "bundle/solarized"]
+	path = bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = git://github.com/ervandew/supertab.git
+[submodule "bundle/textile"]
+	path = bundle/textile
+	url = git://github.com/timcharper/textile.vim.git
+[submodule "bundle/zoomwin"]
+	path = bundle/zoomwin
+	url = git://github.com/vim-scripts/ZoomWin.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "bundle/markdown"]
+	path = bundle/markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundle/unimpaired"]
+	path = bundle/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/coffee-script"]
+	path = bundle/coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://github.com/wincent/Command-T.git
