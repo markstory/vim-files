@@ -1,0 +1,3 @@
+## Vim config
+
+This is my vim config, use at your own risk.
