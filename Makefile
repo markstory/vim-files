@@ -5,7 +5,11 @@ help:
 	@echo "install - install + compile native things."
 	@echo "update  - Download update for all plugins."
 
-install: commandt
+install: submodules commandt
+
+submodules:
+	git submodule init
+	git submodule update
 
 commandt:
 	cd bundle/Command-T/ruby/command-t/;\
