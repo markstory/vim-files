@@ -19,4 +19,7 @@ commandt:
 update:
 	git submodule foreach git pull origin master 
 
+symlink:
+	ln -sf ~+/vimrc ~/.vimrc
+	ln -sf ~+/gvimrc ~/.gvimrc
 
