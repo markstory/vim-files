@@ -5,7 +5,7 @@ help:
 	@echo "install - install + compile native things."
 	@echo "update  - Download update for all plugins."
 
-install: submodules commandt
+install: symlink submodules commandt
 
 submodules:
 	git submodule init
