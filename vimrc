@@ -190,9 +190,12 @@ set modelines=10
 color vividchalk
 set guifont=Monaco:h12
 
-" Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+" swap files. Generally things are in version control
+" don't use backupfiles either.
+set noswapfile
+set nobackup
+set nowritebackup
+
 
 " Turn on jshint errors by default
 let g:JSLintHighlightErrorLine = 1

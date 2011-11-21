@@ -2,6 +2,10 @@ if has("gui_macvim")
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert
 
+  " Persistent undos
+  set undodir=~/.vim/backup
+  set undofile
+
   " Command-T for CommandT
   macmenu &File.New\ Tab key=<D-T>
   map <D-t> :CommandT<CR>
