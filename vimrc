@@ -134,9 +134,6 @@ au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 " Coffeescript uses 2 spaces too.
 au FileType coffee set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 
-" Compile coffee-script on save
-au BufWritePost *.coffee silent CoffeeMake! -b | cwindow
-
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -188,7 +185,7 @@ set modelines=10
 
 " Default color scheme
 color vividchalk
-set guifont=Monaco:h12
+set guifont=Droid\ Sans\ Mono:h12
 
 " swap files. Generally things are in version control
 " don't use backupfiles either.
