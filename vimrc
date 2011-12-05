@@ -185,7 +185,7 @@ set modelines=10
 
 " Default color scheme
 color vividchalk
-set guifont=Droid\ Sans\ Mono:h12
+set guifont=Bitstrem\ Vera\ Sans\ Mono:h12
 
 " swap files. Generally things are in version control
 " don't use backupfiles either.
