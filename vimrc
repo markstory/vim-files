@@ -170,6 +170,7 @@ nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
+nmap <C-q> <C-W>q
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
