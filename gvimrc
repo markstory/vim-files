@@ -14,13 +14,9 @@ if has("gui_macvim")
   " Command-Return for fullscreen
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
 
-  " Command-e for ConqueTerm
-  map <D-e> :call StartTerm()<CR>
-
   " Command-/ to toggle comments
   map <D-/> <plug>NERDCommenterToggle<CR>
   imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
-
 
   " Command-][ to increase/decrease indentation
   vmap <D-]> >gv
