@@ -41,6 +41,10 @@ set grepformat=%f:%l:%c:%m
 " Clear search highlighting
 map <Leader><Space> :nohl<CR>
 
+" Spell checking. configure the language and turn off spell checking.
+set spell spelllang=en_ca
+set nospell
+
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modules/*
