@@ -61,3 +61,6 @@
 [submodule "bundle/git"]
 	path = bundle/git
 	url = git://github.com/tpope/vim-git.git
+[submodule "bundle/scratch"]
+	path = bundle/scratch
+	url = git://github.com/duff/vim-scratch.git
