@@ -24,7 +24,7 @@ set autoindent
 " Window settings
 set wrap
 set lbr
-set textwidth=120
+set textwidth=0
 set cursorline
 
 " Searching
@@ -128,15 +128,20 @@ au BufNewFile,BufRead *.json set ft=javascript
 
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=80 expandtab
+au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
 au FileType rst setl textwidth=80
 
 " Make ruby use 2 spaces for indentation.
 au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 
+" PHP settings
+au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
+
+" Javascript settings
+au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
 
 " Coffeescript uses 2 spaces too.
-au FileType coffee set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
+au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 
 
 " allow backspacing over everything in insert mode
@@ -177,6 +182,7 @@ nmap <C-l> <C-W>l
 nmap <C-q> <C-W>q
 
 " Enable syntastic syntax checking
+let g:syntastic_check_on_open=0
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 
