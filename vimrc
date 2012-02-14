@@ -207,3 +207,6 @@ let g:JSLintHighlightErrorLine = 1
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
 
+
+" XML Tidying
+:command Txml :%!tidy -q -i -xml
