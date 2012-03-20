@@ -54,6 +54,9 @@ if !has('gui_running')
 	let g:AutoClosePreservDotReg = 0
 endif
 
+" Use modeline overrides
+set modeline
+set modelines=10
 
 " Status bar
 set laststatus=2
@@ -66,6 +69,9 @@ set noequalalways
 
 " Save on blur
 au FocusLost * :wa
+
+" Save on blur for terminal vim
+au CursorHold,CursorHoldI * silent! wa
 
 " Move to occurances
 map <Leader>f [I:let nr = input("Which one:")<Bar>exe "normal " . nr . "[\t"<CR>
@@ -147,9 +153,10 @@ nmap <C-l> <C-W>l
 map <Leader>= <C-w>=
 imap <Leader>= <Esc> <C-w>=
 
-" Use modeline overrides
-set modeline
-set modelines=10
+" Lazy save / save + exit
+map <Leader>w :w<CR>
+map <Leader>q :q<CR>
+
 
 " Default color scheme
 set guifont=Bitstream\ Vera\ Sans\ Mono:h12
@@ -210,7 +217,9 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
+
 """ Custom commands """
+
 " XML Tidying
 :command Txml :%!tidy -q -i -xml
 
