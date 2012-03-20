@@ -67,22 +67,6 @@ set noequalalways
 " Save on blur
 au FocusLost * :wa
 
-" NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
-map <Leader>n :NERDTreeToggle<CR>
-
-" Command-T configuration
-let g:CommandTMaxHeight=20
-
-" ZoomWin configuration
-map <Leader><Leader> :ZoomWin<CR>
-
-" CTags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-map <C-\> :tnext<CR>
-map <Leader>t :TlistToggle<CR>
-let tlist_php_settings = 'php;c:class;d:constant;f:function'
-
 " Move to occurances
 map <Leader>f [I:let nr = input("Which one:")<Bar>exe "normal " . nr . "[\t"<CR>
 
@@ -92,20 +76,9 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
-  set wrap
-  set wrapmargin=2
-  set textwidth=72
-endfunction
 
-function s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Hammer<CR>
-endfunction
+""" Filetypes """
 
-"
-" Filetypes
-"
 " make uses real tabs
 au FileType make setl noexpandtab
 
@@ -126,7 +99,6 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 " Highlight JSON like Javascript
 au BufNewFile,BufRead *.json set ft=javascript
 
-
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
 au FileType rst setl textwidth=80
@@ -142,7 +114,6 @@ au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 n
 
 " Coffeescript uses 2 spaces too.
 au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab
-
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -162,14 +133,6 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-
 " Remap j/k for long line situations
 nmap j gj
 nmap k gk
@@ -179,20 +142,21 @@ nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
-nmap <C-q> <C-W>q
 
-" Enable syntastic syntax checking
-let g:syntastic_check_on_open=0
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
+" Adjust viewports/splits to be the same size.
+map <Leader>= <C-w>=
+imap <Leader>= <Esc> <C-w>=
 
 " Use modeline overrides
 set modeline
 set modelines=10
 
 " Default color scheme
-color vividchalk
 set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+set background=light
+let g:solarized_visibility='medium'
+let g:solarized_contrast='normal'
+color solarized
 
 " swap files. Generally things are in version control
 " don't use backupfiles either.
@@ -200,13 +164,56 @@ set noswapfile
 set nobackup
 set nowritebackup
 
+" Persistent undos
+set undodir=~/.vim/backup
+set undofile
 
-" Turn on jshint errors by default
+""" Plugin config """
+
+" ZoomWin configuration
+map <Leader><Leader> :ZoomWin<CR>
+
+" CTags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+map <C-\> :tnext<CR>
+let tlist_php_settings = 'php;c:class;d:constant;f:function'
+
+" NERDTree configuration
+let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
+map <Leader>n :NERDTreeToggle<CR>
+
+" Leader-/ to toggle comments
+map <Leader>/ <plug>NERDCommenterToggle<CR>
+imap <Leader>/ <Esc><plug>NERDCommenterToggle<CR>i
+
+" Command-T configuration
+let g:CommandTMaxHeight=20
+
+" RagTag
+let g:ragtag_global_maps = 1
+
+" Turn on JSHint errors by default
 let g:JSLintHighlightErrorLine = 1
+
+" Enable syntastic syntax checking
+let g:syntastic_check_on_open=0
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
+let g:syntastic_phpcs_disable=1
+
+" Unimpaired configuration
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+""" Custom commands """
+" XML Tidying
+:command Txml :%!tidy -q -i -xml
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
 
-
-" XML Tidying
-:command Txml :%!tidy -q -i -xml
