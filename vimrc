@@ -1,3 +1,6 @@
+" vim: foldmethod=marker :
+" {{{ Basic Config
+"
 set nocompatible
 
 " Include pathogen
@@ -21,13 +24,44 @@ set list listchars=tab:▸\ ,eol:¬,trail:·
 set noeol
 set autoindent
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 " Window settings
 set wrap
 set lbr
 set textwidth=0
 set cursorline
 
-" Searching
+" Use modeline overrides
+set modeline
+set modelines=10
+
+" Status bar
+set laststatus=2
+set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
+
+" Default color scheme
+set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+set background=light
+let g:solarized_visibility='medium'
+let g:solarized_contrast='normal'
+color solarized
+
+" Swap files. Generally things are in version control
+" don't use backupfiles either.
+set noswapfile
+set nobackup
+set nowritebackup
+
+" Persistent undos
+set undodir=~/.vim/backup
+set undofile
+
+" }}}
+
+" {{{ Searching
+"
 set hlsearch
 set incsearch
 set ignorecase
@@ -40,6 +74,8 @@ set grepformat=%f:%l:%c:%m
 
 " Clear search highlighting
 map <Leader><Space> :nohl<CR>
+
+" }}}
 
 " Spell checking. configure the language and turn off spell checking.
 set spell spelllang=en_ca
@@ -54,27 +90,19 @@ if !has('gui_running')
 	let g:AutoClosePreservDotReg = 0
 endif
 
-" Use modeline overrides
-set modeline
-set modelines=10
-
-" Status bar
-set laststatus=2
-set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
 
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
+" {{{ Autocommands
+"
 " Save on blur
 au FocusLost * :wa
 
 " Save on blur for terminal vim
 au CursorHold,CursorHoldI * silent! wa
-
-" Move to occurances
-map <Leader>f [I:let nr = input("Which one:")<Bar>exe "normal " . nr . "[\t"<CR>
 
 " Remember last location in file
 if has("autocmd")
@@ -82,8 +110,12 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
+" }}}
 
-""" Filetypes """
+" {{{ Filetypes
+"
+" load the plugin and indent settings for the detected filetype
+filetype plugin indent on
 
 " make uses real tabs
 au FileType make setl noexpandtab
@@ -96,11 +128,6 @@ au BufRead,BufNewFile *.{twig}  set ft=htmljinja
 
 " Map *.coffee to coffee type
 au BufRead,BufNewFile *.coffee  set ft=coffee
-
-" md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-
-au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " Highlight JSON like Javascript
 au BufNewFile,BufRead *.json set ft=javascript
@@ -121,19 +148,13 @@ au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 n
 " Coffeescript uses 2 spaces too.
 au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" }}}
 
-" load the plugin and indent settings for the detected filetype
-filetype plugin indent on
-
+" {{{ Keybindings
+"
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
@@ -157,26 +178,29 @@ imap <Leader>= <Esc> <C-w>=
 map <Leader>w :w<CR>
 map <Leader>q :q<CR>
 
+" Move to occurances
+map <Leader>f [I:let nr = input("Which one:")<Bar>exe "normal " . nr . "[\t"<CR>
 
-" Default color scheme
-set guifont=Bitstream\ Vera\ Sans\ Mono:h12
-set background=light
-let g:solarized_visibility='medium'
-let g:solarized_contrast='normal'
-color solarized
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
 
-" swap files. Generally things are in version control
-" don't use backupfiles either.
-set noswapfile
-set nobackup
-set nowritebackup
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
-" Persistent undos
-set undodir=~/.vim/backup
-set undofile
+" }}}
 
-""" Plugin config """
+" {{{ Custom commands
+"
 
+" XML Tidying
+:command Txml :%!tidy -q -i -xml
+
+" }}}
+
+" {{{ Plugin config
+"
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
 
@@ -208,21 +232,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
 let g:syntastic_phpcs_disable=1
 
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-
-
-""" Custom commands """
-
-" XML Tidying
-:command Txml :%!tidy -q -i -xml
+" }}}
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
-
