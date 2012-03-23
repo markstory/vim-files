@@ -48,6 +48,10 @@ let g:solarized_visibility='medium'
 let g:solarized_contrast='normal'
 color solarized
 
+" Context-dependent cursor in the terminal
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7""
+
 " Swap files. Generally things are in version control
 " don't use backupfiles either.
 set noswapfile
