@@ -183,10 +183,10 @@ map <Leader>w :w<CR>
 map <Leader>q :q<CR>
 
 " I can't type, fix common mistakes.
-cmap W w
-cmap Wq wq
-cmap Q q
-cmap Qa qa
+cmap W<CR> w<CR>
+cmap Wq<CR> wq<CR>
+cmap Q<CR> q<CR>
+cmap Qa<CR> qa<CR>
 
 " Move to occurances
 map <Leader>f [I:let nr = input("Which one:")<Bar>exe "normal " . nr . "[\t"<CR>
