@@ -85,6 +85,9 @@ map <Leader><Space> :nohl<CR>
 set spell spelllang=en_ca
 set nospell
 
+" Use the system clipboard
+set clipboard=unnamed
+
 " Tab completion
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modules/*
