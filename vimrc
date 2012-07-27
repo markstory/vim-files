@@ -214,6 +214,13 @@ vmap <C-Down> ]egv
 " XML Tidying
 :command Txml :%!tidy -q -i -xml
 
+" CTags
+" Generate ctags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+
+" Go to the next tag.
+map <C-\> :tnext<CR>
+
 " }}}
 
 " {{{ Plugin config
@@ -222,8 +229,6 @@ vmap <C-Down> ]egv
 map <Leader><Leader> :ZoomWin<CR>
 
 " CTags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-map <C-\> :tnext<CR>
 let tlist_php_settings = 'php;c:class;d:constant;f:function'
 
 " NERDTree configuration
