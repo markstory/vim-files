@@ -43,7 +43,7 @@ set modelines=10
 
 " Status bar
 set laststatus=2
-set statusline=%t\ %y\ format:\ %{&ff};\ [%l,%c]
+set statusline=%t\ %h%m%r%w\ [%{strlen(&ft)?&ft:'none'}\|%{&ff}\|%{strlen(&fenc)?&fenc:&enc}]%=[%l,%L,\ %c]
 
 " Default color scheme
 set guifont=Bitstream\ Vera\ Sans\ Mono:h12
