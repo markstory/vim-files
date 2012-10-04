@@ -46,7 +46,7 @@ set laststatus=2
 set statusline=%t\ %h%m%r%w\ [%{strlen(&ft)?&ft:'none'}\|%{&ff}\|%{strlen(&fenc)?&fenc:&enc}]%=[%l,%L,\ %c]
 
 " Default color scheme
-set guifont=Source\ Code Pro:h13
+set guifont=Source\ Code\ Pro:h13
 set background=light
 let g:solarized_visibility='medium'
 let g:solarized_contrast='normal'
