@@ -248,8 +248,7 @@ let g:ragtag_global_maps = 1
 " Enable syntastic syntax checking
 let g:syntastic_check_on_open=0
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
-let g:syntastic_phpcs_disable=1
+let g:syntastic_php_checkers=['php']
 
 " Ack plugin
 map <Leader>a :Ack<Space>
