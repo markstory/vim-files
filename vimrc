@@ -63,8 +63,10 @@ set nobackup
 set nowritebackup
 
 " Persistent undos
-set undodir=~/.vim/backup
-set undofile
+if !&diff
+  set undodir=~/.vim/backup
+  set undofile
+endif
 
 " }}}
 
