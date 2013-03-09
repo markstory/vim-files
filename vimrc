@@ -216,6 +216,11 @@ vmap <C-Down> ]egv
 " XML Tidying
 :command Txml :%!tidy -q -i -xml
 
+" Spell check shortcut.
+:command SpellOn :setlocal spell spelllang=en_ca
+
+:command SpellOff :setlocal nospell
+
 " CTags
 " Generate ctags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
