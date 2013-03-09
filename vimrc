@@ -259,3 +259,8 @@ map <Leader>a :Ack<Space>
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
+
+let g:vdebug_options = {
+\  'path_maps': {"/mnt/hgfs/Sites/fresh_app": "/Users/mark/Sites/fresh_app"},
+\ 'server': '0.0.0.0'
+\}
