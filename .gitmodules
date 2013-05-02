@@ -85,3 +85,6 @@
 [submodule "bundle/vdebug"]
 	path = bundle/vdebug
 	url = git://github.com/joonty/vdebug.git
+[submodule "bundle/golang"]
+	path = bundle/golang
+	url = git://github.com/jnwhiteh/vim-golang.git
