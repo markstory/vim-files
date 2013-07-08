@@ -43,7 +43,7 @@ set modelines=10
 
 " Status bar
 set laststatus=2
-set statusline=%t\ %h%m%r%w\ [%{strlen(&ft)?&ft:'none'}\|%{&ff}\|%{strlen(&fenc)?&fenc:&enc}]%=[%l,%L,\ %c]
+"set statusline=%t\ %h%m%r%w\ [%{strlen(&ft)?&ft:'none'}\|%{&ff}\|%{strlen(&fenc)?&fenc:&enc}]%=[%l,%L,\ %c]
 
 " Default color scheme
 set guifont=Source\ Code\ Pro:h13
@@ -262,6 +262,12 @@ let g:syntastic_php_checkers=['php']
 
 " Ack plugin
 map <Leader>a :Ack<Space>
+
+" Airline
+let g:airline_enable_fugitive=1
+let g:airline_enable_syntastic=1
+let g:airline_theme='light'
+
 
 " }}}
 
