@@ -239,7 +239,7 @@ map <C-\> :tnext<CR>
 map <Leader><Leader> :ZoomWin<CR>
 
 " CTags
-let tlist_php_settings = 'php;c:class;d:constant;f:function'
+let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
