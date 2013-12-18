@@ -146,20 +146,20 @@ au BufRead,BufNewFile *.coffee  set ft=coffee
 au BufNewFile,BufRead *.json set ft=javascript
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
+au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab colorcolumn=79
 au FileType rst setl textwidth=80
 
 " Make ruby use 2 spaces for indentation.
 au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 
 " php settings
-au filetype php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
+au filetype php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=120
 
 " golang settings
 au filetype go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
 
 " Javascript settings
-au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
+au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=120
 
 " Coffeescript uses 2 spaces too.
 au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab
