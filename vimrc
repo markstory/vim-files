@@ -137,13 +137,16 @@ au FileType make setl noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
 " Map .twig files as jinja templates
-au BufRead,BufNewFile *.{twig}  set ft=htmljinja
+au BufRead,BufNewFile *.twig  set ft=htmljinja
 
 " Map *.coffee to coffee type
 au BufRead,BufNewFile *.coffee  set ft=coffee
 
 " Highlight JSON like Javascript
 au BufNewFile,BufRead *.json set ft=javascript
+
+" hbs and mustache files.
+au BufRead,BufNewFile {*.mustache,*.hbs}  set ft=mustache
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab colorcolumn=79
