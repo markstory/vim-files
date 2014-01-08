@@ -88,3 +88,6 @@
 [submodule "bundle/vdebug.git"]
 	path = bundle/vdebug.git
 	url = git://github.com/joonty/vdebug
+[submodule "bundle/mustache"]
+	path = bundle/mustache
+	url = git://github.com/mustache/vim-mustache-handlebars.git
