@@ -1,5 +1,4 @@
 " vim: foldmethod=marker :
-" {{{ Basic Config
 "
 set nocompatible
 
@@ -7,6 +6,9 @@ set nocompatible
 call pathogen#infect()
 call pathogen#helptags()
 
+" {{{ Window and editor setup
+
+" Display line numbers and rulers.
 set number
 set ruler
 syntax on
@@ -14,9 +16,12 @@ syntax on
 " Set encoding
 set encoding=utf-8
 
+" Use 256 colors
+set t_Co=256
+
 let mapleader=','
 
-" Whitespace stuff
+" Whitespace features
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -37,13 +42,27 @@ set lbr
 set textwidth=0
 set cursorline
 
+" Don't redraw when macros are executing.
+set lazyredraw
+
 " Use modeline overrides
 set modeline
 set modelines=10
 
 " Status bar
 set laststatus=2
-"set statusline=%t\ %h%m%r%w\ [%{strlen(&ft)?&ft:'none'}\|%{&ff}\|%{strlen(&fenc)?&fenc:&enc}]%=[%l,%L,\ %c]
+
+" Use the system clipboard
+set clipboard=unnamed
+
+" Tab completion for filenames and other command line features.
+set wildmenu
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modules/*
+
+" }}}
+
+" {{{ Colors and cursors 
 
 " Default color scheme
 set guifont=Source\ Code\ Pro:h13
@@ -55,6 +74,10 @@ color solarized
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7""
+
+" }}}
+
+" {{{ Swap files and undos
 
 " Swap files. Generally things are in version control
 " don't use backupfiles either.
@@ -91,12 +114,6 @@ map <Leader><Space> :nohl<CR>
 set spell spelllang=en_ca
 set nospell
 
-" Use the system clipboard
-set clipboard=unnamed
-
-" Tab completion
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modules/*
 
 " Autoclose terminal compatibility
 if !has('gui_running')
@@ -170,7 +187,7 @@ au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 " }}}
 
 " {{{ Keybindings
-"
+
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -237,7 +254,7 @@ map <C-\> :tnext<CR>
 " }}}
 
 " {{{ Plugin config
-"
+
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
 
