@@ -172,6 +172,9 @@ au FileType rst setl textwidth=80
 " Make ruby use 2 spaces for indentation.
 au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 
+" Make scala use 2 spaces for indentation.
+au FileType scala setl softtabstop=2 tabstop=2 expandtab
+
 " php settings
 au filetype php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=120
 
