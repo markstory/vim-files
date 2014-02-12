@@ -159,8 +159,8 @@ au BufRead,BufNewFile *.twig  set ft=htmljinja
 " Map *.coffee to coffee type
 au BufRead,BufNewFile *.coffee  set ft=coffee
 
-" Highlight JSON like Javascript
-au BufNewFile,BufRead *.json set ft=javascript
+" Highlight JSON & es6 like Javascript
+au BufNewFile,BufRead {*.json,*.es6} set ft=javascript
 
 " hbs and mustache files.
 au BufRead,BufNewFile {*.mustache,*.hbs}  set ft=mustache
