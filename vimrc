@@ -282,6 +282,7 @@ let g:ragtag_global_maps = 1
 let g:syntastic_check_on_open=0
 let g:syntastic_enable_signs=1
 let g:syntastic_php_checkers=['php']
+let g:syntastic_python_checkers=['flake8']
 
 " Ack plugin
 map <Leader>a :Ack<Space>
