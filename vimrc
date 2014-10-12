@@ -313,3 +313,9 @@ let g:vdebug_options = {
 \ 'path_maps': {"/mnt/hgfs/Sites/fresh_app": "/Users/mark/Sites/fresh_app"},
 \ 'server': '0.0.0.0'
 \}
+
+
+" Load vimrc in each directory that vim is opened in.
+" This provides 'per project' vim config.
+set exrc
+set secure
