@@ -169,11 +169,8 @@ au BufRead,BufNewFile {*.mustache,*.hbs}  set ft=mustache
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab colorcolumn=79
 au FileType rst setl textwidth=80 expandtab colorcolumn=81
 
-" Make ruby use 2 spaces for indentation.
-au FileType {ruby,eruby} setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
-
-" Make scala use 2 spaces for indentation.
-au FileType scala setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab
+" Make ruby,scss,sass use 2 spaces for indentation.
+au FileType {sass,scss,ruby,eruby} setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
 
 " php settings
 au filetype php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=120
@@ -182,10 +179,10 @@ au filetype php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpand
 au filetype go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=80
 
 " Javascript settings
-au FileType javascript setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=120
+au FileType javascript setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=120
 
 " Coffeescript uses 2 spaces too.
-au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab
+au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
 
 " }}}
 
