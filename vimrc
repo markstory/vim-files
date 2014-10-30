@@ -181,6 +181,9 @@ au filetype go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandt
 " Javascript settings
 au FileType javascript setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=120
 
+" Hbs settings
+au FileType mustache setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=120
+
 " Coffeescript uses 2 spaces too.
 au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
 
