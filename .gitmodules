@@ -94,3 +94,6 @@
 [submodule "bundle/rust"]
 	path = bundle/rust
 	url = git@github.com:wting/rust.vim.git
+[submodule "bundle/dockerfile"]
+	path = bundle/dockerfile
+	url = https://github.com/honza/dockerfile.vim.git
