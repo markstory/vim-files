@@ -256,6 +256,8 @@ map <ScrollWheelDown> <C-E>
 " Generate ctags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
+nmap <Leader>gs :Gstat<CR>
+
 " Go to the next tag.
 map <C-\> :tnext<CR>
 
