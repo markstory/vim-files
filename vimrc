@@ -295,15 +295,14 @@ let g:syntastic_python_checkers=['flake8']
 map <Leader>a :Ack<Space>
 
 " Airline
-let g:airline_enable_branch=1
-let g:airline_enable_syntastic=1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline_theme='solarized'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_branch_prefix = '⎇ '
+let g:airline_symbols = {}
+let g:airline_symbols.linenr = '␊ '
+let g:airline_symbols.branch = '⎇ '
 let g:airline_solarized_reduced = 0
 
 
