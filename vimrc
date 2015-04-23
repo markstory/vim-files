@@ -239,6 +239,9 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+" Turn off Ex mode - I hate that thing.
+nnoremap Q <nop>
+
 " }}}
 
 " {{{ Custom commands
