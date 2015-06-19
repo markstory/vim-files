@@ -62,7 +62,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modul
 
 " }}}
 
-" {{{ Colors and cursors 
+" {{{ Colors and cursors
 
 " Default color scheme
 set guifont=Source\ Code\ Pro:h13
@@ -254,6 +254,9 @@ nnoremap Q <nop>
 :command SpellOn :setlocal spell spelllang=en_ca
 
 :command SpellOff :setlocal nospell
+
+" Trim whitespace
+:command Trim :%s/\s\+$//e
 
 " CTags
 " Generate ctags
