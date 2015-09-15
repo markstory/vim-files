@@ -267,6 +267,8 @@ nmap <Leader>gs :Gstat<CR>
 " Go to the next tag.
 map <C-\> :tnext<CR>
 
+" Add w!! - sudo save
+cmap w!! w !sudo tee % >/dev/null
 " }}}
 
 " {{{ Plugin config
