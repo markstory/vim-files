@@ -67,6 +67,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modul
 " Default color scheme
 set guifont=Source\ Code\ Pro:h13
 set background=light
+set noshowmode
 let g:solarized_visibility='medium'
 let g:solarized_contrast='normal'
 color solarized
