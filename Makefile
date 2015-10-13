@@ -17,7 +17,7 @@ commandt:
 		make clean && make
 
 update:
-	git submodule foreach git pull origin master 
+	git submodule foreach git pull origin master
 
 symlink:
 	ln -sf ~+/vimrc ~/.vimrc
