@@ -315,6 +315,15 @@ let g:airline_symbols.branch = '⎇ '
 let g:airline_solarized_reduced = 0
 " Only show the column number.
 let g:airline_section_z = 'c:%c'
+" Use short forms for common modes.
+let g:airline_mode_map = {
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'v'  : 'V',
+    \ 's'  : 'S',
+    \ 't'  : 'T',
+    \ }
 
 
 " }}}
