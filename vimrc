@@ -155,7 +155,7 @@ au FileType make setl noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
 " Map .twig files as jinja templates
-au BufRead,BufNewFile *.twig  set ft=htmljinja
+au BufRead,BufNewFile *.twig,*.tpl  set ft=htmljinja
 
 " Map *.coffee to coffee type
 au BufRead,BufNewFile *.coffee  set ft=coffee
