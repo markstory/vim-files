@@ -171,7 +171,7 @@ au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expand
 au FileType rst setl textwidth=80 expandtab colorcolumn=81
 
 " Make ruby,scss,sass use 2 spaces for indentation.
-au FileType {sass,scss,ruby,eruby} setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
+au FileType {yaml,sass,scss,ruby,eruby} setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
 
 " php settings
 au filetype php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
