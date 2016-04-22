@@ -100,3 +100,6 @@
 [submodule "bundle/vim-airline-themes"]
 	path = bundle/vim-airline-themes
 	url = git://github.com/vim-airline/vim-airline-themes
+[submodule "bundle/groovy"]
+	path = bundle/groovy
+	url = git://github.com/vim-scripts/groovy.vim.git
