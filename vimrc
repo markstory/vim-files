@@ -152,19 +152,19 @@ filetype plugin indent on
 au FileType make setl noexpandtab
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 
 " Map .twig files as jinja templates
-au BufRead,BufNewFile *.twig,*.tpl  set ft=htmljinja
+au BufRead,BufNewFile *.twig,*.tpl set ft=htmljinja
 
 " Map *.coffee to coffee type
-au BufRead,BufNewFile *.coffee  set ft=coffee
+au BufRead,BufNewFile *.coffee set ft=coffee
 
 " Highlight JSON & es6 like Javascript
 au BufNewFile,BufRead {*.json,*.es6} set ft=javascript
 
 " hbs and mustache files.
-au BufRead,BufNewFile {*.mustache,*.hbs}  set ft=mustache
+au BufRead,BufNewFile {*.mustache,*.hbs} set ft=mustache
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab colorcolumn=79
@@ -175,6 +175,9 @@ au FileType {yaml,sass,scss,ruby,eruby} setl softtabstop=2 shiftwidth=2 tabstop=
 
 " php settings
 au filetype php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
+
+" css settings
+au filetype css setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
 
 " golang settings
 au filetype go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=80
@@ -187,6 +190,9 @@ au FileType mustache setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 exp
 
 " Coffeescript uses 2 spaces too.
 au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
+
+" jinja/twig
+au FileType htmljinja setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
 
 " }}}
 
