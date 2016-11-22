@@ -352,4 +352,3 @@ let g:vdebug_options = {
 " Load vimrc in each directory that vim is opened in.
 " This provides 'per project' vim config.
 set exrc
-set secure
