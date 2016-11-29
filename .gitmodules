@@ -103,3 +103,6 @@
 [submodule "bundle/groovy"]
 	path = bundle/groovy
 	url = git://github.com/vim-scripts/groovy.vim.git
+[submodule "bundle/elm"]
+	path = bundle/elm
+	url = git@github.com:lambdatoast/elm.vim.git

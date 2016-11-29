@@ -174,13 +174,13 @@ au FileType rst setl textwidth=80 expandtab colorcolumn=81
 au FileType {yaml,sass,scss,ruby,eruby} setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
 
 " php settings
-au filetype php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
+au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
 
 " css settings
-au filetype css setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
+au FileType css setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
 
 " golang settings
-au filetype go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=80
+au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=80
 
 " Javascript settings
 au FileType javascript setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=120
@@ -191,8 +191,8 @@ au FileType mustache setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 exp
 " Coffeescript
 au FileType coffee setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
 
-" Groovy
-au FileType groovy setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
+" Groovy / Elm
+au FileType {groovy,elm} setl textwidth=80 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
 
 " jinja/twig
 au FileType htmljinja setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
