@@ -13,7 +13,7 @@ submodules:
 
 commandt:
 	cd bundle/command-t/ruby/command-t/;\
-		ruby extconf.rb;\
+		/usr/bin/ruby extconf.rb;\
 		make clean && make
 
 update:
