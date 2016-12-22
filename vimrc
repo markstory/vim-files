@@ -55,6 +55,9 @@ set laststatus=2
 " Use the system clipboard
 set clipboard=unnamed
 
+" Enable folding via `{{{` and  `}}}`
+set foldmethod=marker
+
 " Tab completion for filenames and other command line features.
 set wildmenu
 set wildmode=list:longest,list:full
