@@ -5,16 +5,14 @@ help:
 	@echo "install - install + compile native things."
 	@echo "update  - Download update for all plugins."
 
-install: symlink submodules commandt
+install: symlink submodules fzf
 
 submodules:
 	git submodule init
 	git submodule update
 
-commandt:
-	cd bundle/command-t/ruby/command-t/;\
-		ruby extconf.rb;\
-		make clean && make
+fzf:
+	brew install fzf
 
 update:
 	git submodule foreach git pull origin master
@@ -22,4 +20,3 @@ update:
 symlink:
 	ln -sf ~+/vimrc ~/.vimrc
 	ln -sf ~+/gvimrc ~/.gvimrc
-
