@@ -5,7 +5,7 @@ help:
 	@echo "install - install + compile native things."
 	@echo "update  - Download update for all plugins."
 
-install: symlink submodules fzf
+install: symlink submodules fzf ag
 
 submodules:
 	git submodule init
@@ -13,6 +13,9 @@ submodules:
 
 fzf:
 	brew install fzf
+
+ag:
+	brew install the_silver_searcher
 
 update:
 	git submodule foreach git pull origin master

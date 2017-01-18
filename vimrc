@@ -317,6 +317,8 @@ let g:syntastic_php_checkers=['php']
 let g:syntastic_python_checkers=['flake8']
 
 " Ack plugin
+" Use ag instead of ack for more speed
+let g:ackprg = 'ag --nogroup --nocolor --column'
 map <Leader>a :Ack<Space>
 
 " Airline
