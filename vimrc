@@ -310,11 +310,15 @@ let g:CommandTMaxHeight=20
 " RagTag
 let g:ragtag_global_maps = 1
 
-" Enable syntastic syntax checking
-let g:syntastic_check_on_open=0
-let g:syntastic_enable_signs=1
-let g:syntastic_php_checkers=['php']
-let g:syntastic_python_checkers=['flake8']
+" Configure a.l.e. syntax checking
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['flake8'],
+\}
+" Only lint on save.
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+
 
 " Ack plugin
 " Use ag instead of ack for more speed
@@ -323,7 +327,6 @@ map <Leader>a :Ack<Space>
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline_theme='solarized'
 let g:airline_left_sep=''
