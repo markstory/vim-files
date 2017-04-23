@@ -186,7 +186,7 @@ au FileType css setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandta
 au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=80
 
 " markdown settings
-au FileType markdown setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=80
+au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=80
 
 " Javascript(y) settings
 au FileType {typescript,javascript,mustache} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=120
