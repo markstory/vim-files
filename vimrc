@@ -288,7 +288,7 @@ cmap w!! w !sudo tee % >/dev/null
 " {{{ Plugin config
 
 " ZoomWin configuration
-map <Leader><Leader> :ZoomWin<CR>
+map <Leader>z :ZoomWin<CR>
 
 " CTags
 let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
