@@ -10,6 +10,8 @@ if has("gui_macvim")
   " Command-Return for fullscreen
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
 
+  set macligatures
+  set guifont=Fira\ Code:h12
 endif
 
 " Don't beep
