@@ -12,10 +12,10 @@ submodules:
 	git submodule update
 
 fzf:
-	brew install fzf
+	-brew install fzf
 
 ag:
-	brew install the_silver_searcher
+	-brew install the_silver_searcher
 
 update:
 	git submodule foreach git pull origin master
@@ -23,3 +23,7 @@ update:
 symlink:
 	ln -sf ~+/vimrc ~/.vimrc
 	ln -sf ~+/gvimrc ~/.gvimrc
+	# Create neovim config
+	mkdir -p ~/.config
+	ln -sf ~+ ~/.config/nvim/
+	ln -sf ~+/vimrc ~/.config/nvim/init.vim
