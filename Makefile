@@ -24,6 +24,6 @@ symlink:
 	ln -sf ~+/vimrc ~/.vimrc
 	ln -sf ~+/gvimrc ~/.gvimrc
 	# Create neovim config
-	mkdir -p ~/.config
+	mkdir -p ~/.config/nvim
 	ln -sf ~+ ~/.config/nvim/
 	ln -sf ~+/vimrc ~/.config/nvim/init.vim
