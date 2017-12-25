@@ -349,7 +349,7 @@ let g:airline_mode_map = {
 
 " Fuzzy finder depends on `brew install fzf`
 set rtp+=/usr/local/opt/fzf
-let g:fzf_layout = { 'down': '40%' }
+let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_tags_command = 'ctags --extra=+f -R'
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
