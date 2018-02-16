@@ -190,8 +190,8 @@ au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 expa
 " Javascript(y) settings
 au FileType {typescript,javascript,mustache} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=120
 
-" CoffeeScript, Groovy, Elm
-au FileType {coffee,groovy,elm} setl textwidth=80 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
+" CoffeeScript, Groovy, Elm, Docker
+au FileType {coffee,groovy,elm,dockerfile} setl textwidth=80 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
 
 " jinja/twig
 au FileType htmljinja setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
