@@ -168,6 +168,9 @@ au BufNewFile,BufRead {*.json,*.es6} set ft=javascript
 " hbs and mustache files.
 au BufRead,BufNewFile {*.mustache,*.hbs} set ft=mustache
 
+" Jenkinsfile are groovy
+au BufRead,BufNewFile Jenkinsfile set ft=groovy
+
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab colorcolumn=79
 au FileType rst setl textwidth=80 expandtab colorcolumn=81
@@ -192,6 +195,7 @@ au FileType {typescript,javascript,mustache} setl textwidth=120 softtabstop=2 sh
 
 " CoffeeScript, Groovy, Elm, Docker
 au FileType {coffee,groovy,elm,dockerfile} setl textwidth=80 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
+
 
 " jinja/twig
 au FileType htmljinja setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
