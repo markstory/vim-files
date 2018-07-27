@@ -58,6 +58,9 @@ set clipboard=unnamed
 " Enable folding via `{{{` and  `}}}`
 set foldmethod=marker
 
+" Use new regex engine to get better performance in ruby files
+set regexpengine=2 "
+
 " Tab completion for filenames and other command line features.
 set wildmenu
 set wildmode=list:longest,list:full
