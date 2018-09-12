@@ -174,6 +174,9 @@ au BufRead,BufNewFile {*.mustache,*.hbs} set ft=mustache
 " Jenkinsfile are groovy
 au BufRead,BufNewFile Jenkinsfile set ft=groovy
 
+" Lector uses custom file types, but markdown contents.
+au BufNewFile,BufRead {*.lr} set ft=markdown
+
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab colorcolumn=79
 au FileType rst setl textwidth=80 expandtab colorcolumn=81
@@ -327,8 +330,6 @@ let g:ale_sign_error = '✖︎'
 let g:ale_sign_warning = '❢'
 
 " Ack plugin
-" Use ag instead of ack for more speed
-let g:ackprg = 'ag --nogroup --nocolor --column'
 map <Leader>a :Ack<Space>
 
 " Airline
