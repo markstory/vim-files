@@ -28,6 +28,7 @@ set softtabstop=4
 set list listchars=tab:▸\ ,eol:¬,trail:·
 set noeol
 set autoindent
+set expandtab
 
 " Enable formatting of comments, and one letter words.
 " see :help fo-table
@@ -178,32 +179,26 @@ au BufRead,BufNewFile Jenkinsfile set ft=groovy
 au BufNewFile,BufRead {*.lr} set ft=markdown
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab colorcolumn=79
-au FileType rst setl textwidth=80 expandtab colorcolumn=81
+au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=100 colorcolumn=99
+au FileType rst setl textwidth=80 colorcolumn=81
 
 " Make ruby,scss,sass,less use 2 spaces for indentation.
-au FileType {cucumber,yaml,sass,scss,ruby,eruby,less} setl softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
+au FileType {cucumber,yaml,sass,scss,ruby,eruby,less} setl softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
 
 " php settings
-au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
-
-" css settings
-au FileType css setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
+au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=120
 
 " golang settings
-au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=80
+au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab colorcolumn=100
 
 " markdown settings
-au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=80
+au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=79
 
-" Javascript(y) settings
-au FileType {typescript,javascript,mustache} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=120
+" Javascript, CSS, and html settings
+au FileType {css,typescript,javascript,mustache,htmljinja,html} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
 
 " CoffeeScript, Groovy, Elm, Docker
-au FileType {coffee,groovy,elm,dockerfile} setl textwidth=80 softtabstop=2 shiftwidth=2 tabstop=2 expandtab colorcolumn=80
-
-" jinja/twig
-au FileType {htmljinja,html} setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab colorcolumn=120
+au FileType {coffee,groovy,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
 
 " }}}
 
@@ -327,6 +322,10 @@ let g:ale_lint_on_text_changed = 0
 " Customize flags
 let g:ale_sign_error = '✖︎'
 let g:ale_sign_warning = '❢'
+
+" Enable virtual text display
+let g:ale_virtualtext_cursor = 1
+
 
 " Ack plugin
 map <Leader>a :Ack<Space>
