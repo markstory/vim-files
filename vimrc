@@ -58,6 +58,7 @@ set clipboard=unnamed
 
 " Enable folding via `{{{` and  `}}}`
 set foldmethod=marker
+set foldlevelstart=1
 
 " Use new regex engine to get better performance in ruby files
 set regexpengine=2 "
