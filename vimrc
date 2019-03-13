@@ -299,6 +299,8 @@ let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
+"show dot files
+let NERDTreeShowHidden = 1
 map <Leader>n :NERDTreeToggle<CR>
 
 " Leader-/ to toggle comments
