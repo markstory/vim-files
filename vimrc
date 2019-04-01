@@ -318,8 +318,16 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['flake8'],
 \}
-" Only lint on save.
+" configure fixers for a.l.e
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'python': ['autopep8'],
+\ 'php': ['phpcbf'],
+\}
+
+" Apply fixers and lint on save.
 let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 0
 
 " Customize flags
