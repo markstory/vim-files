@@ -392,7 +392,6 @@ let macvim_hig_shift_movement = 1
 " Configure paths for Vdebug
 " Paths maps are remote: local
 let g:vdebug_options = {
-\ 'path_maps': {"/mnt/hgfs/Sites/fresh_app": "/Users/mark/Sites/fresh_app"},
 \ 'server': '0.0.0.0'
 \}
 
