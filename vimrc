@@ -73,6 +73,7 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modul
 " {{{ Colors and cursors
 
 " Default color scheme
+set termguicolors
 set background=light
 set noshowmode
 let g:solarized_visibility='medium'
