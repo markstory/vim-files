@@ -28,9 +28,6 @@
 [submodule "bundle/textile"]
 	path = bundle/textile
 	url = git://github.com/timcharper/textile.vim.git
-[submodule "bundle/zoomwin"]
-	path = bundle/zoomwin
-	url = git://github.com/vim-scripts/ZoomWin.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
