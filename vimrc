@@ -280,8 +280,6 @@ nnoremap Q <nop>
 " Generate ctags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
-nmap <Leader>gs :Gstat<CR>
-
 " Go to the next tag.
 map <C-\> :tnext<CR>
 
@@ -382,9 +380,6 @@ let g:fzf_colors =
 nmap <Leader>t :Files<CR>
 nmap <Leader>b :Buffers<CR>
 " }}}
-
-" MacVIM shift+arrow-keys behavior (required in .vimrc)
-let macvim_hig_shift_movement = 1
 
 " Configure paths for Vdebug
 " Paths maps are remote: local
