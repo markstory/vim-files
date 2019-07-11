@@ -277,8 +277,8 @@ nnoremap Q <nop>
 :command Trim :%s/\s\+$//e
 
 " CTags
-" Generate ctags
-map <Leader>rt :!ctags --exclude='dist' --exclude=node_modules --exclude='*.pyc' --exclude='*.min*' --extra=+f -R *<CR><CR>
+" Generate ctags. Relies on having a useful ~/.ctags file
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " Go to the next tag.
 map <C-\> :tnext<CR>
