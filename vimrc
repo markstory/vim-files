@@ -278,7 +278,7 @@ nnoremap Q <nop>
 
 " CTags
 " Generate ctags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+map <Leader>rt :!ctags --exclude='dist' --exclude=node_modules --exclude='*.pyc' --exclude='*.min*' --extra=+f -R *<CR><CR>
 
 " Go to the next tag.
 map <C-\> :tnext<CR>
