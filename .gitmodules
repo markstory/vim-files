@@ -28,9 +28,6 @@
 [submodule "bundle/textile"]
 	path = bundle/textile
 	url = git://github.com/timcharper/textile.vim.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
