@@ -335,6 +335,10 @@ let g:ale_virtualtext_cursor = 1
 
 " Ack plugin
 map <Leader>a :Ack<Space>
+" Use the_silver_searcher if available
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
