@@ -312,12 +312,12 @@ let g:ragtag_global_maps = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['flake8'],
+\   'php': ['phpcs'],
 \}
 " configure fixers for a.l.e
 let g:ale_fixers = {
 \ 'javascript': ['eslint'],
 \ 'python': ['autopep8'],
-\ 'php': ['phpcbf'],
 \}
 
 " Apply fixers and lint on save.
@@ -329,8 +329,8 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_sign_error = '✖︎'
 let g:ale_sign_warning = '❢'
 
-" Enable virtual text display
-let g:ale_virtualtext_cursor = 1
+" Show errors in statusline
+let g:airline#extensions#ale#enabled = 1
 
 
 " Ack plugin
