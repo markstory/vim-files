@@ -319,7 +319,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
-\   'python': ['autopep8'],
+\   'python': ['autopep8', 'black'],
 \}
 
 " Apply fixers and lint on save.
