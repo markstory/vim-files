@@ -311,13 +311,15 @@ let g:ragtag_global_maps = 1
 " Configure a.l.e. syntax checking
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'eslint'],
 \   'python': ['flake8'],
 \   'php': ['phpcs'],
 \}
 " configure fixers for a.l.e
 let g:ale_fixers = {
-\ 'javascript': ['eslint'],
-\ 'python': ['autopep8'],
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\   'python': ['autopep8'],
 \}
 
 " Apply fixers and lint on save.
@@ -331,6 +333,9 @@ let g:ale_sign_warning = '❢'
 
 " Show errors in statusline
 let g:airline#extensions#ale#enabled = 1
+
+" Enable autocompletion where possible.
+let g:ale_completion_enabled = 1
 
 
 " Ack plugin
