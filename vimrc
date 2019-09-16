@@ -196,7 +196,7 @@ au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandt
 au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=79
 
 " Javascript, CSS, and html settings
-au FileType {css,typescript,javascript,mustache,htmljinja,html} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
+au FileType {css,typescript,typescriptreact,javascript,mustache,htmljinja,html} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
 
 " CoffeeScript, Groovy, Elm, Docker
 au FileType {coffee,groovy,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
@@ -334,9 +334,10 @@ let g:ale_sign_warning = '❢'
 " Show errors in statusline
 let g:airline#extensions#ale#enabled = 1
 
-" Enable autocompletion where possible.
-let g:ale_completion_enabled = 1
-
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+" Delay suggestions by 200ms
+call deoplete#custom#option('auto_complete_delay', 200)
 
 " Ack plugin
 map <Leader>a :Ack<Space>

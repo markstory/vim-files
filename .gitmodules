@@ -106,3 +106,6 @@
 [submodule "bundle/vim-tsx"]
 	path = bundle/vim-tsx
 	url = https://github.com/ianks/vim-tsx.git
+[submodule "bundle/deoplete.nvim"]
+	path = bundle/deoplete.nvim
+	url = git://github.com/Shougo/deoplete.nvim
