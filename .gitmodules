@@ -97,15 +97,12 @@
 [submodule "bundle/ale"]
 	path = bundle/ale
 	url = https://github.com/w0rp/ale.git
-[submodule "bundle/typescript-vim"]
-	path = bundle/typescript-vim
-	url = git://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/vim-jsx"]
 	path = bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
-[submodule "bundle/vim-tsx"]
-	path = bundle/vim-tsx
-	url = https://github.com/ianks/vim-tsx.git
 [submodule "bundle/deoplete.nvim"]
 	path = bundle/deoplete.nvim
 	url = git://github.com/Shougo/deoplete.nvim
+[submodule "bundle/yats.vim"]
+	path = bundle/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim.git
