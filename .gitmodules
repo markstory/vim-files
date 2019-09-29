@@ -1,108 +1,12 @@
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/vim-javascript"]
-	path = bundle/vim-javascript
-	url = git://github.com/pangloss/vim-javascript.git
 [submodule "bundle/jshint"]
 	path = bundle/jshint
 	url = git://github.com/wookiehangover/jshint.vim.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = git://github.com/wycats/nerdtree.git
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
-	url = git://github.com/ddollar/nerdcommenter.git
-[submodule "bundle/surround"]
-	path = bundle/surround
-	url = git://github.com/tpope/vim-surround.git
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
 [submodule "bundle/vividchalk"]
 	path = bundle/vividchalk
 	url = git://github.com/tpope/vim-vividchalk.git
-[submodule "bundle/solarized"]
-	path = bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/textile"]
-	path = bundle/textile
-	url = git://github.com/timcharper/textile.vim.git
-[submodule "bundle/markdown"]
-	path = bundle/markdown
-	url = git://github.com/tpope/vim-markdown.git
-[submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
-	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/coffee-script"]
-	path = bundle/coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
-[submodule "bundle/autoclose"]
-	path = bundle/autoclose
-	url = git://github.com/Townk/vim-autoclose.git
-[submodule "bundle/ragtag"]
-	path = bundle/ragtag
-	url = git://github.com/markstory/vim-ragtag.git
-[submodule "bundle/git"]
-	path = bundle/git
-	url = git://github.com/tpope/vim-git.git
-[submodule "bundle/scratch"]
-	path = bundle/scratch
-	url = git://github.com/duff/vim-scratch.git
 [submodule "bundle/powerline"]
 	path = bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
-[submodule "bundle/vim-less"]
-	path = bundle/vim-less
-	url = https://github.com/groenewege/vim-less.git
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = git://github.com/mileszs/ack.vim.git
-[submodule "bundle/php"]
-	path = bundle/php
-	url = git://github.com/vim-scripts/php.vim--Garvin.git
-[submodule "bundle/vdebug"]
-	path = bundle/vdebug
-	url = git://github.com/joonty/vdebug.git
-[submodule "bundle/golang"]
-	path = bundle/golang
-	url = git://github.com/jnwhiteh/vim-golang.git
-[submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
-	url = git://github.com/bling/vim-airline.git
-[submodule "bundle/vdebug.git"]
-	path = bundle/vdebug.git
-	url = git://github.com/joonty/vdebug
-[submodule "bundle/mustache"]
-	path = bundle/mustache
-	url = git://github.com/mustache/vim-mustache-handlebars.git
-[submodule "bundle/rust"]
-	path = bundle/rust
-	url = git@github.com:wting/rust.vim.git
-[submodule "bundle/dockerfile"]
-	path = bundle/dockerfile
-	url = https://github.com/honza/dockerfile.vim.git
-[submodule "bundle/vim-airline-themes"]
-	path = bundle/vim-airline-themes
-	url = git://github.com/vim-airline/vim-airline-themes
-[submodule "bundle/groovy"]
-	path = bundle/groovy
-	url = git://github.com/vim-scripts/groovy.vim.git
-[submodule "bundle/elm"]
-	path = bundle/elm
-	url = git@github.com:lambdatoast/elm.vim.git
-[submodule "bundle/fzf"]
-	path = bundle/fzf
-	url = https://github.com/junegunn/fzf.vim
-[submodule "bundle/ale"]
-	path = bundle/ale
-	url = https://github.com/w0rp/ale.git
-[submodule "bundle/vim-jsx"]
-	path = bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx.git
-[submodule "bundle/deoplete.nvim"]
-	path = bundle/deoplete.nvim
-	url = git://github.com/Shougo/deoplete.nvim
-[submodule "bundle/yats.vim"]
-	path = bundle/yats.vim
-	url = https://github.com/HerringtonDarkholme/yats.vim.git
