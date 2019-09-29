@@ -2,9 +2,54 @@
 "
 set nocompatible
 
-" Include pathogen
-call pathogen#infect()
-call pathogen#helptags()
+" {{{ Plugin installation
+call plug#begin()
+
+" Text manipulation
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'Townk/vim-autoclose'
+
+Plug 'duff/vim-scratch'
+Plug 'markstory/vim-zoomwin'
+
+" Search and nav
+Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'ddollar/nerdcommenter'
+Plug 'junegunn/fzf.vim'
+Plug 'vim-scripts/taglist.vim'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
+Plug 'w0rp/ale'
+Plug 'Shougo/deoplete.nvim'
+
+" Languages
+Plug 'vim-scripts/php.vim--Garvin'
+Plug 'timcharper/textile.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-markdown'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
+Plug 'groenewege/vim-less'
+Plug 'jnwhiteh/vim-golang'
+Plug 'joonty/vdebug'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'wting/rust.vim'
+Plug 'honza/dockerfile.vim'
+Plug 'vim-scripts/groovy.vim'
+Plug 'mxw/vim-jsx'
+Plug 'HerringtonDarkholme/yats.vim'
+
+" Visuals
+Plug 'altercation/vim-colors-solarized'
+Plug 'Lokaltog/vim-powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+" }}}
+
 
 " {{{ Window and editor setup
 
