@@ -27,17 +27,17 @@ Plug 'Shougo/deoplete.nvim'
 
 " Languages
 Plug 'vim-scripts/php.vim--Garvin'
+Plug 'joonty/vdebug'
 Plug 'timcharper/textile.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
 Plug 'groenewege/vim-less'
-Plug 'jnwhiteh/vim-golang'
-Plug 'joonty/vdebug'
+Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'wting/rust.vim'
 Plug 'honza/dockerfile.vim'
-Plug 'vim-scripts/groovy.vim'
+Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'mxw/vim-jsx'
 Plug 'HerringtonDarkholme/yats.vim'
 
