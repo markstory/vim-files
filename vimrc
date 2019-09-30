@@ -29,6 +29,7 @@ function! BuildCoc(info)
     call :CocInstall coc-json
     call :CocInstall coc-phpls
     call :CocInstall coc-prettier
+    call :CocInstall coc-eslint
 endfunction
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': function('BuildCoc') }
 

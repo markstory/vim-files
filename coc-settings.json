@@ -1,5 +1,4 @@
 {
-  // No automatic updates.
   "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -12,20 +11,26 @@
     "python"
   ],
 
-  // signs
+  // Signs
   "diagnostic.errorSign": "✖︎",
-  "diagnostic.warningSign": "❢",
-  "diagnostic.infoSign": "i",
-  "diagnostic.hintSign": "h",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ⓘ",
+  "diagnostic.hintSign": "☝",
 
   // Python
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.lintOnSave": true,
   "python.linting.pylintEnabled": false,
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "none",
 
   // Typescript
   "tsserver.enable": true,
   "tsserver.formatOnType": false,
+
+  // eslint
+  "eslint.enable": true,
+  "eslint.run": "onSave",
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 }
