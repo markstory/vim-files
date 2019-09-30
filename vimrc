@@ -25,7 +25,6 @@ Plug 'tpope/vim-fugitive'
 
 function! BuildCoc(info)
     CocInstall coc-tsserver
-    CocInstall coc-eslint
     CocInstall coc-python
     CocInstall coc-json
     CocInstall coc-phpls
