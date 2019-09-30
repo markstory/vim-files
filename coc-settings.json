@@ -1,6 +1,16 @@
 {
   // No automatic updates.
   "coc.preferences.extensionUpdateCheck": "never",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact",
+    "python",
+  ],
 
   // signs
   "diagnostic.errorSign": "✖︎",
@@ -17,8 +27,4 @@
 
   // Typescript
   "tsserver.enable": true,
-
-  // Eslint
-  "eslint.run": "save",
-  "eslint.autoFixOnSave": true
 }

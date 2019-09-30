@@ -28,6 +28,7 @@ function! BuildCoc(info)
     CocInstall coc-python
     CocInstall coc-json
     CocInstall coc-phpls
+    CocInstall coc-prettier
 endfunction
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': function('BuildCoc') }
 
