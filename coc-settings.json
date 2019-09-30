@@ -9,7 +9,7 @@
     "typescript",
     "typescript.tsx",
     "typescriptreact",
-    "python",
+    "python"
   ],
 
   // signs
@@ -27,4 +27,5 @@
 
   // Typescript
   "tsserver.enable": true,
+  "tsserver.formatOnType": false,
 }

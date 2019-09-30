@@ -220,7 +220,7 @@ au BufRead,BufNewFile *.twig,*.tpl set ft=htmljinja
 au BufRead,BufNewFile *.coffee set ft=coffee
 
 " Highlight JSON & es6 like Javascript
-au BufNewFile,BufRead {*.json,*.es6} set ft=javascript
+au BufNewFile,BufRead {*.es6} set ft=javascript
 
 " hbs and mustache files.
 au BufRead,BufNewFile {*.mustache,*.hbs} set ft=mustache
