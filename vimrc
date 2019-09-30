@@ -22,8 +22,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/taglist.vim'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+
+function! BuildCoc(info)
+    CocInstall coc-tsserver
+    CocInstall coc-eslint
+    CocInstall coc-python
+    CocInstall coc-json
+    CocInstall coc-phpls
+endfunction
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': function('BuildCoc') }
 
 " Languages
 Plug 'vim-scripts/php.vim--Garvin'
@@ -353,32 +360,6 @@ let g:CommandTMaxHeight=20
 " RagTag
 let g:ragtag_global_maps = 1
 
-" Configure a.l.e. syntax checking
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver', 'eslint'],
-\   'python': ['flake8'],
-\   'php': ['phpcs'],
-\}
-" configure fixers for a.l.e
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
-\   'python': ['autopep8', 'black'],
-\}
-
-" Apply fixers and lint on save.
-let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_text_changed = 0
-
-" Customize flags
-let g:ale_sign_error = '✖︎'
-let g:ale_sign_warning = '❢'
-
-" Show errors in statusline
-let g:airline#extensions#ale#enabled = 1
-
 
 " Ack plugin
 map <Leader>a :Ack<Space>
@@ -387,9 +368,10 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-" Airline
+" {{{ Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
+
 let g:airline_theme='solarized'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -408,8 +390,9 @@ let g:airline_mode_map = {
     \ 's'  : 'S',
     \ 't'  : 'T',
     \ }
+" }}}
 
-
+" {{{ fzf
 " Fuzzy finder depends on `brew install fzf`
 set rtp+=/usr/local/opt/fzf
 let g:fzf_layout = { 'down': '~40%' }
@@ -430,12 +413,18 @@ let g:fzf_colors =
 
 nmap <Leader>t :Files<CR>
 nmap <Leader>b :Buffers<CR>
+" }}}
 
-" Completion (coc)
+" {{{ Completion (coc)
 " Diagnostic messages show for less time
 set updatetime=300
 " don't show |ins-completion-menu| messages
 set shortmess+=c
+
+" Enable airline integration
+let g:airline#extensions#coc#enabled = 1
+let airline#extensions#coc#error_symbol = '✖︎ '
+let airline#extensions#coc#warning_symbol = '❢ '
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -449,7 +438,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -475,6 +463,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+" }}}
 " }}}
 
 " Configure paths for Vdebug
