@@ -1,0 +1,24 @@
+{
+  // No automatic updates.
+  "coc.preferences.extensionUpdateCheck": "never",
+
+  // signs
+  "diagnostic.errorSign": "✖︎",
+  "diagnostic.warningSign": "❢",
+  "diagnostic.infoSign": "i",
+  "diagnostic.hintSign": "h",
+
+  // Python
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black",
+
+  // Typescript
+  "tsserver.enable": true,
+
+  // Eslint
+  "eslint.run": "save",
+  "eslint.autoFixOnSave": true
+}
