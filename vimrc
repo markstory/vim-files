@@ -47,6 +47,7 @@ Plug 'wting/rust.vim'
 Plug 'honza/dockerfile.vim'
 Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'mxw/vim-jsx'
+Plug 'mitsuhiko/vim-jinja'
 Plug 'HerringtonDarkholme/yats.vim'
 
 " Visuals
