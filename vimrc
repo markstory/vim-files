@@ -70,9 +70,6 @@ syntax on
 " Set encoding
 set encoding=utf-8
 
-" Use 256 colors
-set t_Co=256
-
 let mapleader=','
 
 " Whitespace features
@@ -107,6 +104,9 @@ set modelines=10
 " Status bar
 set laststatus=2
 
+" Auto load changes outside of vim
+set autoread
+
 " Use the system clipboard
 set clipboard=unnamed
 
@@ -129,8 +129,8 @@ set regexpengine=2 "
 " Default color scheme
 set background=light
 set noshowmode
-let g:solarized_visibility='medium'
-let g:solarized_contrast='normal'
+let g:solarized_visibility='high'
+let g:solarized_contrast='medium'
 color solarized
 
 " Context-dependent cursor in the terminal
