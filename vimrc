@@ -67,6 +67,9 @@ set number
 set ruler
 syntax on
 
+" Use 256 colors
+set t_Co=256
+
 " Set encoding
 set encoding=utf-8
 
@@ -129,7 +132,7 @@ set regexpengine=2 "
 " Default color scheme
 set background=light
 set noshowmode
-let g:solarized_visibility='high'
+let g:solarized_visibility='medium'
 let g:solarized_contrast='medium'
 color solarized
 
