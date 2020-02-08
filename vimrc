@@ -19,9 +19,9 @@ Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ddollar/nerdcommenter'
 Plug 'junegunn/fzf.vim'
-Plug 'vim-scripts/taglist.vim'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
+Plug 'vimwiki/vimwiki'
 
 function! BuildCoc(info)
     call :CocInstall coc-tsserver
@@ -43,7 +43,7 @@ Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
 Plug 'groenewege/vim-less'
 Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'wting/rust.vim'
+Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'honza/dockerfile.vim'
 Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'mxw/vim-jsx'
@@ -355,6 +355,9 @@ let g:CommandTMaxHeight=20
 " RagTag
 let g:ragtag_global_maps = 1
 
+
+" vimwiki
+let g:vimwiki_list = [{ 'path': '~/Dropbox/vimwiki/' }]
 
 " Ack plugin
 map <Leader>a :Ack<Space>
