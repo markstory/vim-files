@@ -1,5 +1,6 @@
 {
   "coc.preferences.extensionUpdateCheck": "never",
+  "coc.preferences.jumpCommand": "tabe",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "javascript",

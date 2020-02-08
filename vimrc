@@ -333,21 +333,11 @@ nnoremap Q <nop>
 " Trim whitespace
 :command Trim :%s/\s\+$//e
 
-" CTags
-" Generate ctags. Relies on having a useful ~/.ctags file
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-
-" Go to the next tag.
-map <C-\> :tnext<CR>
-
 " Add w!! - sudo save
 cmap w!! w !sudo tee % >/dev/null
 " }}}
 
 " {{{ Plugin config
-
-" CTags
-let g:tlist_php_settings = 'php;c:class;d:constant;f:function'
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
