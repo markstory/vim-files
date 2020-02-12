@@ -189,15 +189,9 @@ endif
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
+" set noequalalways
 
 " {{{ Autocommands
-"
-" Save on blur
-au FocusLost * :wa
-
-" Save on blur for terminal vim
-au CursorHold,CursorHoldI * silent! wa
 
 " Remember last location in file
 if has("autocmd")
@@ -357,7 +351,7 @@ let g:ragtag_global_maps = 1
 
 
 " vimwiki
-let g:vimwiki_list = [{ 'path': '~/Dropbox/vimwiki/' }]
+let g:vimwiki_list = [{ 'path': '~/Dropbox (Personal)/vimwiki/' }]
 
 " Ack plugin
 map <Leader>a :Ack<Space>
