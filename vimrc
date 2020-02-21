@@ -351,7 +351,7 @@ let g:ragtag_global_maps = 1
 
 
 " vimwiki
-let g:vimwiki_list = [{ 'path': '~/Dropbox (Personal)/vimwiki/' }]
+let g:vimwiki_list = [{ 'path': '~/Dropbox/vimwiki/' }]
 
 " Ack plugin
 map <Leader>a :Ack<Space>
