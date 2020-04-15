@@ -1,24 +1,15 @@
 # Installs extensions and compiles things that need compiling.
 #
-#
 help:
 	@echo "install - install + compile native things."
-	@echo "update  - Download update for all plugins."
 
-install: symlink submodules fzf ag
+install: symlink deps
 
-submodules:
-	git submodule init
-	git submodule update
-
-fzf:
+deps:
 	-brew install fzf
-
-ag:
 	-brew install the_silver_searcher
+	-brew install bat
 
-update:
-	git submodule foreach git pull origin master
 
 symlink:
 	ln -sf ~+/vimrc ~/.vimrc
