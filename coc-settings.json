@@ -34,4 +34,7 @@
   "eslint.run": "onSave",
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+  // PHP
+  "intelephense.environment.phpVersion": "7.3.0",
 }
