@@ -18,7 +18,7 @@ Plug 'markstory/vim-zoomwin'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ddollar/nerdcommenter'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
@@ -49,6 +49,7 @@ Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'mxw/vim-jsx'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 
 " Visuals
 Plug 'altercation/vim-colors-solarized'
@@ -66,9 +67,6 @@ call plug#end()
 set number
 set ruler
 syntax on
-
-" Use 256 colors
-set t_Co=256
 
 " Set encoding
 set encoding=utf-8
