@@ -52,7 +52,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 
 " Visuals
-Plug 'altercation/vim-colors-solarized'
+Plug 'rakr/vim-colors-rakr'
+Plug 'rakr/vim-one'
+Plug 'romainl/flattened'
 Plug 'Lokaltog/vim-powerline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -77,7 +79,7 @@ let mapleader=','
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set list listchars=tab:▸\ ,eol:¬,trail:·
+set list listchars=tab:▸\ ,trail:·
 set noeol
 set autoindent
 set expandtab
@@ -128,11 +130,12 @@ set regexpengine=2 "
 " {{{ Colors and cursors
 
 " Default color scheme
+let g:one_allow_italics = 1
 set background=light
 set noshowmode
-let g:solarized_visibility='medium'
-let g:solarized_contrast='medium'
-color solarized
+set termguicolors
+"color flattened_light
+color one
 
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -362,7 +365,11 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
-let g:airline_theme='solarized'
+" let g:airline_theme='solarized'
+" for rakr
+"let g:airline_theme='hybrid'
+let g:airline_theme='one'
+
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_symbols = {}
