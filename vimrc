@@ -46,16 +46,14 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'honza/dockerfile.vim'
 Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
-Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 
 " Visuals
-Plug 'rakr/vim-colors-rakr'
-Plug 'rakr/vim-one'
+Plug 'jonathanfilip/vim-lucius'
 Plug 'romainl/flattened'
-Plug 'Lokaltog/vim-powerline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -131,11 +129,11 @@ set regexpengine=2 "
 
 " Default color scheme
 let g:one_allow_italics = 1
-set background=light
 set noshowmode
 set termguicolors
-"color flattened_light
-color one
+set background=light
+color lucius
+LuciusWhite
 
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -366,9 +364,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
 " let g:airline_theme='solarized'
-" for rakr
-"let g:airline_theme='hybrid'
-let g:airline_theme='one'
+let g:airline_theme='lucius'
 
 let g:airline_left_sep=''
 let g:airline_right_sep=''
