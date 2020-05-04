@@ -246,7 +246,7 @@ au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandt
 au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=79
 
 " Javascript, CSS, and html settings
-au FileType {css,typescriptreact,typescript,typescript.tsx,javascript,javascript.jsx,mustache,htmljinja,html} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
+au FileType {css,javascriptreact,typescriptreact,typescript,javascript,mustache,htmljinja,html} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
 
 " CoffeeScript, Groovy, Elm, Docker
 au FileType {coffee,groovy,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
