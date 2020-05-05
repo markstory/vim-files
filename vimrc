@@ -52,7 +52,11 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 
 " Visuals
+<<<<<<< Updated upstream
 Plug 'jonathanfilip/vim-lucius'
+=======
+Plug 'rakr/vim-one'
+>>>>>>> Stashed changes
 Plug 'romainl/flattened'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
