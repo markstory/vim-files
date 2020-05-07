@@ -52,11 +52,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 
 " Visuals
-<<<<<<< Updated upstream
-Plug 'jonathanfilip/vim-lucius'
-=======
-Plug 'rakr/vim-one'
->>>>>>> Stashed changes
+Plug 'markstory/vim-lucius'
 Plug 'romainl/flattened'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -421,7 +417,7 @@ set shortmess+=c
 " Enable airline integration
 let g:airline#extensions#coc#enabled = 1
 let airline#extensions#coc#error_symbol = '✖︎ '
-let airline#extensions#coc#warning_symbol = '❢ '
+let airline#extensions#coc#warning_symbol = '⚠  '
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
