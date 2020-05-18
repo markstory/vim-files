@@ -132,8 +132,11 @@ let g:one_allow_italics = 1
 set noshowmode
 set termguicolors
 set background=light
+
+let g:lucius_style = 'light'
+let g:lucius_contrast = 'normal'
+let g:lucius_contrast_bg = 'high'
 color lucius
-LuciusWhite
 
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
