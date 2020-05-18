@@ -118,11 +118,6 @@ set foldlevelstart=1
 " Use new regex engine to get better performance in ruby files
 set regexpengine=2 "
 
-" Tab completion for filenames and other command line features.
-" set wildmenu
-" set wildmode=list:longest,list:full
-" set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,*.pyc,node_modules/*
-
 " }}}
 
 " {{{ Colors and cursors
@@ -186,12 +181,6 @@ set nospell
 if !has('gui_running')
 	let g:AutoClosePreservDotReg = 0
 endif
-
-
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-" set noequalalways
 
 " {{{ Autocommands
 
