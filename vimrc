@@ -17,6 +17,7 @@ Plug 'markstory/vim-zoomwin'
 " Search and nav
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'lambdalisue/fern.vim'
 Plug 'ddollar/nerdcommenter'
 Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-git'
@@ -325,10 +326,25 @@ cmap w!! w !sudo tee % >/dev/null
 " {{{ Plugin config
 
 " NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
+" let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
 "show dot files
-let NERDTreeShowHidden = 1
-map <Leader>n :NERDTreeToggle<CR>
+" let NERDTreeShowHidden = 1
+" map <Leader>n :NERDTreeToggle<CR>
+
+" Fern
+map <Leader>n :Fern . -drawer<CR>
+map <Leader>nr :Fern . -drawer -reveal=%<CR>
+
+function! s:init_fern() abort
+  set nonumber
+  set signcolumn=no
+endfunction
+
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
+
 
 " Leader-/ to toggle comments
 map <Leader>/ <plug>NERDCommenterToggle<CR>
