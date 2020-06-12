@@ -335,16 +335,8 @@ cmap w!! w !sudo tee % >/dev/null
 map <Leader>n :Fern . -drawer<CR>
 map <Leader>nr :Fern . -drawer -reveal=%<CR>
 
-function! s:init_fern() abort
-  set nonumber
-  set signcolumn=no
-endfunction
-
-augroup fern-custom
-  autocmd! *
-  autocmd FileType fern call s:init_fern()
-augroup END
-
+" Format fern windows.
+autocmd FileType fern set nonumber signcolumn=no
 
 " Leader-/ to toggle comments
 map <Leader>/ <plug>NERDCommenterToggle<CR>
@@ -355,7 +347,6 @@ let g:CommandTMaxHeight=20
 
 " RagTag
 let g:ragtag_global_maps = 1
-
 
 " vimwiki
 let g:vimwiki_list = [{ 'path': '~/Dropbox/vimwiki/' }]
