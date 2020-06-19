@@ -16,7 +16,6 @@ Plug 'markstory/vim-zoomwin'
 
 " Search and nav
 Plug 'mileszs/ack.vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'lambdalisue/fern.vim'
 Plug 'ddollar/nerdcommenter'
 Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
@@ -324,12 +323,6 @@ cmap w!! w !sudo tee % >/dev/null
 " }}}
 
 " {{{ Plugin config
-
-" NERDTree configuration
-" let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
-"show dot files
-" let NERDTreeShowHidden = 1
-" map <Leader>n :NERDTreeToggle<CR>
 
 " Fern
 map <Leader>n :Fern . -drawer<CR>
