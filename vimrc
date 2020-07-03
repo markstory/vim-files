@@ -24,12 +24,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 
 function! BuildCoc(info)
-    call :CocInstall coc-tsserver
-    call :CocInstall coc-python
-    call :CocInstall coc-json
-    call :CocInstall coc-phpls
-    call :CocInstall coc-prettier
-    call :CocInstall coc-eslint
+    :CocInstall coc-tsserver
+    :CocInstall coc-python
+    :CocInstall coc-json
+    :CocInstall coc-phpls
+    :CocInstall coc-prettier
+    :CocInstall coc-eslint
+    :CocInstall coc-pyright
 endfunction
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': function('BuildCoc') }
 
