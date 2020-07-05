@@ -110,7 +110,11 @@ set laststatus=2
 set autoread
 
 " Use the system clipboard
-set clipboard=unnamed
+if has('macunix')
+    set clipboard=unnamed
+else
+    set clipboard=unnamedplus
+endif
 
 " Enable folding via `{{{` and  `}}}`
 set foldmethod=marker
@@ -379,8 +383,13 @@ let g:airline_mode_map = {
 " }}}
 
 " {{{ fzf
-" Fuzzy finder depends on `brew install fzf`
-set rtp+=/usr/local/opt/fzf
+" Fuzzy finder depends on `brew install fzf` or git install for linux.
+if has('macunix')
+    set rtp+=/usr/local/opt/fzf
+else
+    set rtp+=~/.fzf
+endif
+
 let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_tags_command = 'ctags --extra=+f -R'
 let g:fzf_colors =
