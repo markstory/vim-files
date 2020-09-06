@@ -276,10 +276,11 @@ nmap <Leader>l <C-W>l
 
 " Adjust viewports/splits to be the same size.
 map <Leader>= <C-w>=
-imap <Leader>= <Esc> <C-w>=
+nmap <Leader>= <C-w>=
 
 " Lazy save / save + exit
 map <Leader>w :w<CR>
+nmap <Leader>w :w<CR>
 map <Leader>q :q<CR>
 
 " I can't type, fix common mistakes.
@@ -348,6 +349,11 @@ let g:ragtag_global_maps = 1
 
 " vimwiki
 let g:vimwiki_list = [{ 'path': '~/Dropbox/vimwiki/' }]
+" Disable the default bindings as they make ,w slow
+let g:vimwiki_key_mappings = { 'global': 0, }
+:command Wiki :VimwikiIndex
+:command Diary :VimwikiDiaryIndex
+:command DiaryNote :VimwikiMakeDiaryNote
 
 " Ack plugin
 map <Leader>a :Ack<Space>
