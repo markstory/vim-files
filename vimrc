@@ -390,16 +390,15 @@ else
     set rtp+=~/.fzf
 endif
 
-let g:fzf_layout = { 'down': '~40%' }
-let g:fzf_tags_command = 'ctags --extra=+f -R'
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
+let g:fzf_colors = {
+  \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
+  \ 'hl+':     ['fg', 'Constant'],
   \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['bg', 'CursorLine'],
   \ 'prompt':  ['fg', 'Conditional'],
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
@@ -408,6 +407,12 @@ let g:fzf_colors =
 
 nmap <Leader>t :Files<CR>
 nmap <Leader>b :Buffers<CR>
+
+" Disable statusline for fzf terminal window as it is noisy.
+if has('nvim')
+  autocmd! FileType fzf
+  autocmd FileType fzf set laststatus=0 noshowmode noruler | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
 " }}}
 
 " {{{ Completion (coc)
