@@ -372,8 +372,8 @@ let g:airline_theme='lucius'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_symbols = {}
-let g:airline_symbols.linenr = '␊ '
-let g:airline_symbols.branch = '⎇ '
+let g:airline_symbols.linenr = "\uE0A1"
+let g:airline_symbols.branch = "\uF126"
 let g:airline_solarized_reduced = 0
 " Only show the column number.
 let g:airline_section_z = 'c:%c'
