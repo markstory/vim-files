@@ -40,7 +40,6 @@ Plug 'joonty/vdebug'
 Plug 'timcharper/textile.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
 Plug 'groenewege/vim-less'
 Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
 Plug 'mustache/vim-mustache-handlebars'
@@ -54,7 +53,6 @@ Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 
 " Visuals
 Plug 'markstory/vim-lucius'
-Plug 'romainl/flattened'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -128,7 +126,6 @@ set regexpengine=2 "
 " {{{ Colors and cursors
 
 " Default color scheme
-let g:one_allow_italics = 1
 set noshowmode
 set termguicolors
 set background=light
@@ -184,7 +181,7 @@ set nospell
 
 " Autoclose terminal compatibility
 if !has('gui_running')
-	let g:AutoClosePreservDotReg = 0
+    let g:AutoClosePreservDotReg = 0
 endif
 
 " {{{ Autocommands
@@ -341,9 +338,6 @@ autocmd FileType fern set nonumber signcolumn=no
 map <Leader>/ <plug>NERDCommenterToggle<CR>
 imap <Leader>/ <Esc><plug>NERDCommenterToggle<CR>i
 
-" Command-T configuration
-let g:CommandTMaxHeight=20
-
 " RagTag
 let g:ragtag_global_maps = 1
 
@@ -366,15 +360,15 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
-" let g:airline_theme='solarized'
 let g:airline_theme='lucius'
 
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_left_sep=""
+let g:airline_right_sep=""
 let g:airline_symbols = {}
 let g:airline_symbols.linenr = "\uE0A1"
 let g:airline_symbols.branch = "\uF126"
-let g:airline_solarized_reduced = 0
+let g:airline_symbols.readonly = "\uE0A2"
+
 " Only show the column number.
 let g:airline_section_z = 'c:%c'
 " Use short forms for common modes.
