@@ -416,6 +416,10 @@ endif
 " }}}
 
 " {{{ Completion (coc)
+" Set node path as system node is sometimes 10.x which is incompatible with
+" pyright
+let g:coc_node_path = '~/.volta/tools/image/node/12.18.4/bin/node'
+
 " Diagnostic messages show for less time
 set updatetime=300
 " don't show |ins-completion-menu| messages
