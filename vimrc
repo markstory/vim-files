@@ -392,11 +392,11 @@ endif
 
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Constant'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Constant'],
+  \ 'hl':      ['fg', 'PreProc'],
+  \ 'hl+':     ['fg', 'Identifier'],
   \ 'info':    ['fg', 'PreProc'],
   \ 'border':  ['bg', 'CursorLine'],
   \ 'prompt':  ['fg', 'Conditional'],
