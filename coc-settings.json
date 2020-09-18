@@ -25,6 +25,9 @@
   "python.linting.pylintEnabled": false,
   "python.formatting.provider": "none",
 
+  // Pyright
+  "python.pythonPath": "~/.pyenv/shims/python",
+
   // disable autocomplete and lsp in python and use pyright intead.
   "python.autoUpdateLanguageServer": false,
   "python.jediEnabled": false,
