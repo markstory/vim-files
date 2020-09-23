@@ -130,10 +130,7 @@ set noshowmode
 set termguicolors
 set background=light
 
-let g:lucius_style = 'light'
-let g:lucius_contrast = 'normal'
-let g:lucius_contrast_bg = 'high'
-color lucius
+color base16_one_light
 
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -360,14 +357,17 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 
-let g:airline_theme='lucius'
+let g:airline_theme='base16_one_light'
 
 let g:airline_left_sep=""
 let g:airline_right_sep=""
 let g:airline_symbols = {}
+let g:airline_symbols.paste = "\uF691"
 let g:airline_symbols.linenr = "\uE0A1"
 let g:airline_symbols.branch = "\uF126"
 let g:airline_symbols.readonly = "\uE0A2"
+let g:airline_symbols.whitespace = "Ξ"
+let g:airline_symbols.notexists = "\uF128"
 
 " Only show the column number.
 let g:airline_section_z = 'c:%c'
@@ -394,16 +394,16 @@ let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl':      ['fg', 'PreProc'],
-  \ 'hl+':     ['fg', 'Identifier'],
-  \ 'info':    ['fg', 'PreProc'],
+  \ 'bg+':     ['fg', 'IncSearch'],
+  \ 'hl':      ['fg', 'Question'],
+  \ 'hl+':     ['fg', 'Question'],
+  \ 'info':    ['fg', 'Label'],
   \ 'border':  ['bg', 'CursorLine'],
   \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ 'pointer': ['fg', 'Special'],
+  \ 'marker':  ['fg', 'Special'],
+  \ 'spinner': ['fg', 'Speical'],
+  \ 'header':  ['fg', 'Include'] }
 
 nmap <Leader>t :Files<CR>
 nmap <Leader>b :Buffers<CR>
