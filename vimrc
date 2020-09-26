@@ -427,8 +427,8 @@ set shortmess+=c
 
 " Enable airline integration
 let g:airline#extensions#coc#enabled = 1
-let airline#extensions#coc#error_symbol = '✖︎ '
-let airline#extensions#coc#warning_symbol = '⚠  '
+let airline#extensions#coc#error_symbol = "\uf467 "
+let airline#extensions#coc#warning_symbol = "\uf071 "
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.

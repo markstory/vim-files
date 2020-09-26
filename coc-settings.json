@@ -13,10 +13,10 @@
   ],
 
   // Signs
-  "diagnostic.errorSign": "✖︎",
-  "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": "ⓘ",
-  "diagnostic.hintSign": "☝",
+  "diagnostic.errorSign": "\uf467",
+  "diagnostic.warningSign": "\uf071",
+  "diagnostic.infoSign": "\uf129",
+  "diagnostic.hintSign": "•",
 
   // Python
   "python.linting.enabled": true,
