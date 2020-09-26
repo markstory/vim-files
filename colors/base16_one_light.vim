@@ -375,10 +375,12 @@ call <sid>hi("NERDTreeDirSlash",  s:gui0D, "", s:cterm0D, "", "", "")
 call <sid>hi("NERDTreeExecFile",  s:gui05, "", s:cterm05, "", "", "")
 
 " PHP highlighting
-call <sid>hi("phpMemberSelector",  s:gui05, "", s:cterm05, "", "", "")
-call <sid>hi("phpComparison",      s:gui05, "", s:cterm05, "", "", "")
-call <sid>hi("phpParent",          s:gui05, "", s:cterm05, "", "", "")
-call <sid>hi("phpMethodsVar",      s:gui0C, "", s:cterm0C, "", "", "")
+call <sid>hi("phpMemberSelector", s:gui05, "", s:cterm05, "", "", "")
+call <sid>hi("phpComparison",     s:gui05, "", s:cterm05, "", "", "")
+call <sid>hi("phpParent",         s:gui05, "", s:cterm05, "", "", "")
+call <sid>hi("phpMethodsVar",     s:gui0C, "", s:cterm0C, "", "", "")
+call <sid>hi("phpVarSelector",    s:gui0C, "", s:cterm0C, "", "", "")
+call <sid>hi("phpIdentifier",     s:gui06, "", s:cterm06, "", "", "")
 
 " Python highlighting
 call <sid>hi("pythonOperator",  s:gui0E, "", s:cterm0E, "", "", "")
