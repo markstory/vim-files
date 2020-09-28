@@ -132,9 +132,8 @@ set background=light
 
 color base16_one_light
 
-" Context-dependent cursor in the terminal
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7""
+" Set cursor shaping and colors
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor
 
 " }}}
 
