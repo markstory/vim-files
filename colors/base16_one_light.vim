@@ -345,12 +345,12 @@ call <sid>hi("markdownCodeBlock",         s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("markdownHeadingDelimiter",  s:gui0D, "", s:cterm0D, "", "", "")
 
 " Vimwiki
-hi link VimwikiHeader1 BIdentifier
-hi link VimwikiHeader2 BPreProc
-hi link VimwikiHeader3 BStatement
-hi link VimwikiHeader4 BSpecial
-hi link VimwikiHeader5 BConstant
-hi link VimwikiHeader6 BType
+call <sid>hi("VimwikiHeader1", s:gui0D, "", s:cterm0D, "", "bold", "")
+call <sid>hi("VimwikiHeader2", s:gui0C, "", s:cterm0C, "", "bold", "")
+call <sid>hi("VimwikiHeader3", s:gui0B, "", s:cterm0B, "", "bold", "")
+call <sid>hi("VimwikiHeader4", s:gui0B, "", s:cterm0B, "", "bold", "")
+call <sid>hi("VimwikiHeader5", s:gui0B, "", s:cterm0B, "", "", "")
+call <sid>hi("VimwikiHeader6", s:gui0B, "", s:cterm0B, "", "", "")
 
 " CoC
 hi link CocErrorFloat Pmenu
