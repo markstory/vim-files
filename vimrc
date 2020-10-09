@@ -299,6 +299,10 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+" Diff mappings
+nnoremap gdh :diffget //2<CR>
+nnoremap gdb :diffget //3<CR>
+
 " Turn off Ex mode - I hate that thing.
 nnoremap Q <nop>
 
