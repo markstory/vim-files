@@ -44,5 +44,5 @@
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 
   // PHP
-  "intelephense.environment.phpVersion": "7.3.0",
+  "intelephense.environment.phpVersion": "7.4.10",
 }
