@@ -299,8 +299,8 @@ map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
 " Diff mappings
-nnoremap gdh :diffget //2<CR>
-nnoremap gdb :diffget //3<CR>
+nnoremap dgh :diffget //2<CR>
+nnoremap dgb :diffget //3<CR>
 
 " Turn off Ex mode - I hate that thing.
 nnoremap Q <nop>
@@ -465,7 +465,6 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Scroll floating windows
-nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 function! s:show_documentation()
