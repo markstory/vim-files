@@ -469,7 +469,7 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Scroll floating windows
-nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+nnoremap <expr><C-b> coc#float#has_float() ? coc#float#scroll(0) : "\<C-b>"
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
