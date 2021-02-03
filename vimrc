@@ -31,6 +31,7 @@ function! BuildCoc(info)
     :execute 'CocInstall coc-prettier'
     :execute 'CocInstall coc-eslint'
     :execute 'CocInstall coc-pyright'
+    :execute 'CocInstall coc-rust-analyzer'
 endfunction
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': function('BuildCoc') }
 
@@ -407,6 +408,9 @@ let g:fzf_colors = {
   \ 'marker':  ['fg', 'Special'],
   \ 'spinner': ['fg', 'Speical'],
   \ 'header':  ['fg', 'Include'] }
+
+" fzf on the bottom 40% of the screen
+let g:fzf_layout = { 'down': '40%' }
 
 nmap <Leader>t :Files<CR>
 nmap <Leader>b :Buffers<CR>
