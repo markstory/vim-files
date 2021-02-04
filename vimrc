@@ -24,14 +24,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 
 function! BuildCoc(info)
-    :execute 'CocInstall coc-tsserver'
-    :execute 'CocInstall coc-python'
-    :execute 'CocInstall coc-json'
-    :execute 'CocInstall coc-phpls'
-    :execute 'CocInstall coc-prettier'
-    :execute 'CocInstall coc-eslint'
-    :execute 'CocInstall coc-pyright'
-    :execute 'CocInstall coc-rust-analyzer'
+    :execute 'CocUpdate'
 endfunction
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': function('BuildCoc') }
 
@@ -51,6 +44,7 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
+Plug 'arrufat/vala.vim'
 
 " Visuals
 Plug 'markstory/vim-lucius'
