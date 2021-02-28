@@ -3,12 +3,6 @@
   "coc.preferences.jumpCommand": "tabe",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact",
     "python"
   ],
 
@@ -38,10 +32,9 @@
   "tsserver.formatOnType": false,
 
   // eslint
-  "eslint.enable": true,
   "eslint.run": "onSave",
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.autoFixOnSave": false,
+  "eslint.format.enable": true,
 
   // PHP
   "intelephense.environment.phpVersion": "7.4.10",
