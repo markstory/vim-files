@@ -12,20 +12,12 @@
   "diagnostic.infoSign": "\uf129",
   "diagnostic.hintSign": "•",
 
-  // Python
+  // Python via pyright
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.lintOnSave": true,
-  "python.linting.pylintEnabled": false,
-  "python.formatting.provider": "none",
-
-  // Pyright
+  "python.formatting.provider": "black",
   "python.pythonPath": "~/.pyenv/shims/python",
-
-  // disable autocomplete and lsp in python and use pyright intead.
-  "python.autoUpdateLanguageServer": false,
-  "python.jediEnabled": false,
-  "python.analysis.diagnosticEnabled": false,
 
   // Typescript
   "tsserver.enable": true,
