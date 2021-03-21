@@ -417,9 +417,9 @@ endif
 let g:coc_global_extensions = [
 \'coc-eslint',
 \'coc-json',
-\'coc-phpls',
 \'coc-pyright',
 \'coc-tsserver',
+\'coc-diagnostic',
 \]
 
 " Set node path as system node is sometimes 10.x which is incompatible with
