@@ -17,6 +17,7 @@
   "python.linting.flake8Enabled": true,
   "python.linting.lintOnSave": true,
   "python.formatting.provider": "black",
+  "python.formatting.blackPath": "~/.pyenv/shims/black",
   "python.pythonPath": "~/.pyenv/shims/python",
 
   // Typescript

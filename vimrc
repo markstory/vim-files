@@ -23,6 +23,7 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 
+" Autocomplete and linting
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 " Languages
@@ -40,11 +41,13 @@ Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
-Plug 'arrufat/vala.vim'
+
+" Not currently working with these languages
+" Keeping them out of laziness.
+" Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
+" Plug 'arrufat/vala.vim'
 
 " Visuals
-Plug 'markstory/vim-lucius'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -85,9 +88,6 @@ set wrap
 set lbr
 set textwidth=0
 set cursorline
-
-" Don't redraw when macros are executing.
-set lazyredraw
 
 " Use modeline overrides
 set modeline
