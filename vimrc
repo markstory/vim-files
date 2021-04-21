@@ -110,8 +110,9 @@ endif
 set foldmethod=marker
 set foldlevelstart=1
 
-" Use new regex engine to get better performance in ruby files
-set regexpengine=2 "
+" Try rendering tweaks
+set ttyfast
+set lazyredraw
 
 " }}}
 
@@ -478,9 +479,13 @@ function! s:show_documentation()
     endif
 endfunction
 
-" Bind a command for eslint fixing as having it on by default disrupts search
-" results.
+" Bind a commands for common CoC actions/commands
+" Having eslint fixing on by default disrupts `:Ack` results.
 :command Fix :call CocAction('format')
+
+" Make shorter to type commands.
+:command PySort :CocCommand python.sortImports
+
 " }}}
 " }}}
 

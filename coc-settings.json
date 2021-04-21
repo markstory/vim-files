@@ -19,6 +19,7 @@
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.pyenv/shims/black",
   "python.pythonPath": "~/.pyenv/shims/python",
+  "python.sortImports.path": "~/.pyenv/shims/isort",
 
   // Typescript
   "tsserver.enable": true,
