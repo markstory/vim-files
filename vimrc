@@ -418,6 +418,7 @@ endif
 let g:coc_global_extensions = [
 \'coc-eslint',
 \'coc-json',
+\'coc-phpls',
 \'coc-pyright',
 \'coc-tsserver',
 \'coc-diagnostic',

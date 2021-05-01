@@ -31,6 +31,7 @@
   "eslint.format.enable": true,
 
   // PHP
+  "intelliphense.format.enable": false,
   "diagnostic-languageserver.mergeConfig": false,
   "diagnostic-languageserver.filetypes": {
     "php": ["psalm", "phpcs"]
@@ -91,7 +92,7 @@
     "phpcbf": {
       "command": "./vendor/bin/phpcbf",
       "rootPatterns": ["composer.lock", "vendor", ".git"],
-      "args": ["%file"],
+      "args": ["--standard=./phpcs.xml", "%file"],
       "isStdout": false,
       "doesWriteToFile": true
     }
