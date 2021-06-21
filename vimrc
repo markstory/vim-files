@@ -125,8 +125,10 @@ set background=light
 
 color base16_one_light
 
-" Set cursor shaping and colors
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor
+" Set cursor shaping.
+" Setting colors on n-v-c causes text inside the
+" cursor to disappear in alacritty.
+set guicursor=n-v-c:block,i-ci-ve:ver25-Cursor,r-cr:hor20-Cursor,o:hor50-Cursor
 
 " }}}
 
