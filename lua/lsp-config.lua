@@ -71,38 +71,13 @@ nvim_lsp.intelephense.setup {
   on_attach = on_attach,
 }
 
---[[
-local diagnosticls = require('diagnosticls-nvim')
-diagnosticls.init {
-  on_attach = on_attach,
-}
-local eslint = require('diagnosticls-nvim.linters.eslint')
-local esformat = require('diagnosticls-nvim.formatters.eslint_fmt')
-
-diagnosticls.setup {
-  javascript = {
-    linter = eslint,
-    formatter = esformat,
-  },
-  typescript = {
-    linter = eslint,
-    formatter = esformat,
-  },
-  typescriptreact = {
-    linter = eslint,
-    formatter = esformat,
-  },
-}
-]]--
 -- Async formatting helper
 local format_async = function(err, _, result, _, bufnr)
-  print("run format!", err, result)
   if err ~= nil or result == nil then
     return
   end
-  print("should do save")
   if not vim.api.nvim_buf_get_option(bufnr, "modified") then
-      local view = vim.fn.winsavestate()
+      local view = vim.fn.winsaveview()
       vim.lsp.util.apply_text_edits(result, bufnr)
       vim.fn.winrestview(view)
       if bufnr == vim.api.nvim_get_current_buf() then
@@ -184,7 +159,7 @@ local linters = {
 }
 
 --- Formatters
-local formatFileTypes = {
+local formatFiletypes = {
   typescript = "eslint",
   typescriptreact = "eslint",
   python = "black",
@@ -210,10 +185,9 @@ local formatters = {
 }
 
 local custom_attach = function(client)
-  print("'" .. client.name .. "' language server started")
   on_attach(client)
 end
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("info")
 
 nvim_lsp.diagnosticls.setup {
   on_attach = custom_attach,
@@ -222,7 +196,7 @@ nvim_lsp.diagnosticls.setup {
     filetypes = filetypes,
     linters = linters,
     formatters = formatters,
-    formatFileTypes = formatFileTypes,
+    formatFiletypes = formatFiletypes,
   },
 }
 saga.init_lsp_saga()

@@ -43,7 +43,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " LSP
 Plug 'neovim/nvim-lspconfig', { 'branch': 'main' }
-Plug 'creativenull/diagnosticls-nvim', { 'branch': 'main' }
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
 
