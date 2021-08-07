@@ -71,9 +71,36 @@ nvim_lsp.intelephense.setup {
   on_attach = on_attach,
 }
 
+--[[
+local diagnosticls = require('diagnosticls-nvim')
+diagnosticls.init {
+  on_attach = on_attach,
+}
+local eslint = require('diagnosticls-nvim.linters.eslint')
+local esformat = require('diagnosticls-nvim.formatters.eslint_fmt')
+
+diagnosticls.setup {
+  javascript = {
+    linter = eslint,
+    formatter = esformat,
+  },
+  typescript = {
+    linter = eslint,
+    formatter = esformat,
+  },
+  typescriptreact = {
+    linter = eslint,
+    formatter = esformat,
+  },
+}
+]]--
 -- Async formatting helper
 local format_async = function(err, _, result, _, bufnr)
-if err ~= nil or result == nil then return end
+  print("run format!", err, result)
+  if err ~= nil or result == nil then
+    return
+  end
+  print("should do save")
   if not vim.api.nvim_buf_get_option(bufnr, "modified") then
       local view = vim.fn.winsavestate()
       vim.lsp.util.apply_text_edits(result, bufnr)
@@ -96,7 +123,7 @@ local filetypes = {
 local linters = {
   eslint = {
     sourceName = "eslint",
-    command = "eslint_d",
+    command = "eslint",
     rootPatterns = {".eslintrc.js", "package.json"},
     debouce = 100,
     args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
@@ -158,16 +185,16 @@ local linters = {
 
 --- Formatters
 local formatFileTypes = {
-  typescript = "prettier",
-  typescriptreact = "prettier",
+  typescript = "eslint",
+  typescriptreact = "eslint",
   python = "black",
   php = "phpcbf",
 }
 
 local formatters = {
-  prettier = {
-    command = "prettier",
-    args = {"--stdin-filepath", "%filepath"},
+  eslint = {
+    command = "eslint",
+    args = {"--fix", "--fix-to-stdout", "--stdin", "--stdin-filepath", "%filepath"},
   },
   black = {
     command = "black",
@@ -182,8 +209,14 @@ local formatters = {
   },
 }
 
+local custom_attach = function(client)
+  print("'" .. client.name .. "' language server started")
+  on_attach(client)
+end
+vim.lsp.set_log_level("debug")
+
 nvim_lsp.diagnosticls.setup {
-  on_attach = on_attach,
+  on_attach = custom_attach,
   filetypes = vim.tbl_keys(filetypes),
   init_options = {
     filetypes = filetypes,
@@ -192,5 +225,4 @@ nvim_lsp.diagnosticls.setup {
     formatFileTypes = formatFileTypes,
   },
 }
-
 saga.init_lsp_saga()

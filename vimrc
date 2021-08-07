@@ -23,12 +23,8 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 
-" Autocomplete and linting
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-
 " Languages
 Plug 'vim-scripts/php.vim--Garvin'
-Plug 'joonty/vdebug'
 Plug 'timcharper/textile.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
@@ -41,6 +37,15 @@ Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'HerringtonDarkholme/yats.vim'
+
+" Improved syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" LSP
+Plug 'neovim/nvim-lspconfig', { 'branch': 'main' }
+Plug 'creativenull/diagnosticls-nvim', { 'branch': 'main' }
+Plug 'glepnir/lspsaga.nvim'
+Plug 'hrsh7th/nvim-compe'
 
 " Not currently working with these languages
 " Keeping them out of laziness.
@@ -416,87 +421,19 @@ if has('nvim')
 endif
 " }}}
 
-" {{{ Completion (coc)
-let g:coc_global_extensions = [
-\'coc-eslint',
-\'coc-json',
-\'coc-phpls',
-\'coc-pyright',
-\'coc-tsserver',
-\'coc-diagnostic',
-\]
+" Load LSP config
+lua require('lsp-config')
 
-" Set node path as system node is sometimes 10.x which is incompatible with
-" pyright
-let g:coc_node_path = '~/.volta/tools/image/node/12.18.4/bin/node'
-
-" Diagnostic messages show for less time
-set updatetime=300
-" don't show |ins-completion-menu| messages
-set shortmess+=c
-
-" Enable airline integration
-let g:airline#extensions#coc#enabled = 1
-let airline#extensions#coc#error_symbol = "\uf467 "
-let airline#extensions#coc#warning_symbol = "\uf071 "
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gD <Plug>(coc-declaration)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Scroll floating windows
-nnoremap <expr><C-b> coc#float#has_float() ? coc#float#scroll(1) : "\<C-b>"
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
-
-" Bind a commands for common CoC actions/commands
-" Having eslint fixing on by default disrupts `:Ack` results.
-:command Fix :call CocAction('format')
-
-" Make shorter to type commands.
-:command PySort :CocCommand python.sortImports
-
+" {{{ Treesitter configuration 
+lua <<EOF
+local treesitter = require('nvim-treesitter.configs')
+treesitter.setup {
+    highlight = {
+        enable = true
+    },
+}
+EOF
 " }}}
-" }}}
-
-" Configure paths for Vdebug
-" Paths maps are remote: local
-let g:vdebug_options = {
-\ 'server': '0.0.0.0'
-\}
 
 
 " Load vimrc in each directory that vim is opened in.

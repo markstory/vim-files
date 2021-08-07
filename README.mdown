@@ -6,3 +6,13 @@ This is my vim config, use at your own risk.
 
 1. Clone this repository into `~/.vim`. `git clone git://github.com/markstory/vim-files.git ~/.vim`
 2. Run `cd ~/.vim && make install`
+
+### Getting LSP working
+
+LSP features require a few more dependencies that aren't automated because platforms are messy.
+
+```shell
+# Get the following packages installed as global node modules.
+npm install -g pyright
+npm install -g typescript typescript-language-server diagnostic-languageserver eslint_d
+```
