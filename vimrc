@@ -24,19 +24,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 
 " Languages
-Plug 'vim-scripts/php.vim--Garvin'
 Plug 'timcharper/textile.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-markdown'
 Plug 'groenewege/vim-less'
-Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'wting/rust.vim', { 'for': 'rust' }
-Plug 'honza/dockerfile.vim'
+Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
-Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'HerringtonDarkholme/yats.vim'
 
 " Improved syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -46,11 +39,6 @@ Plug 'neovim/nvim-lspconfig', { 'branch': 'main' }
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
 Plug 'mhartington/formatter.nvim'
-
-" Not currently working with these languages
-" Keeping them out of laziness.
-" Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
-" Plug 'arrufat/vala.vim'
 
 " Visuals
 Plug 'vim-airline/vim-airline'

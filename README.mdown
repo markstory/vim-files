@@ -13,6 +13,23 @@ LSP features require a few more dependencies that aren't automated because platf
 
 ```shell
 # Get the following packages installed as global node modules.
-npm install -g pyright
-npm install -g typescript typescript-language-server diagnostic-languageserver eslint_d
+npm install -g pyright intelephense
+npm install -g typescript typescript-language-server 
+```
+
+And a general language server installed via Brew or `go get`
+
+```
+brew install efm-langserver
+# or
+go get github.com/mattn/efm-langserver
+```
+
+### Treesitter setup
+
+Most syntax highlighting plugins have been replace with Treesitter packages.
+However, I don't have a good way to install these automatically yet.
+
+```
+:TSInstall bash css dockerfile javascript json html lua php python rst scss tsx typescript yaml
 ```
