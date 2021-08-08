@@ -45,6 +45,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig', { 'branch': 'main' }
 Plug 'glepnir/lspsaga.nvim'
 Plug 'hrsh7th/nvim-compe'
+Plug 'mhartington/formatter.nvim'
 
 " Not currently working with these languages
 " Keeping them out of laziness.
@@ -218,7 +219,10 @@ au BufRead,BufNewFile Jenkinsfile set ft=groovy
 " Lector and Gatsby use custom file types, but markdown contents.
 au BufNewFile,BufRead {*.mdx,*.lr} set ft=markdown
 
-" make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+" Lua
+au BufRead,BufNewFile *.lua set ft=lua
+
+" Make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=100 colorcolumn=99
 au FileType rst setl textwidth=80 colorcolumn=81 shiftwidth=4 softtabstop=4 tabstop=4
 
@@ -234,8 +238,8 @@ au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandt
 " markdown settings
 au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=79
 
-" Javascript, CSS, and html settings
-au FileType {css,javascriptreact,typescriptreact,typescript,javascript,mustache,htmljinja,html} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
+" Javascript, CSS, lua, and HTML settings
+au FileType {css,javascriptreact,typescriptreact,typescript,javascript,mustache,htmljinja,html,lua} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
 
 " CoffeeScript, Groovy, Elm, Docker
 au FileType {coffee,groovy,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
@@ -281,9 +285,6 @@ cmap Wq<CR> wq<CR>
 cmap Q<CR> q<CR>
 cmap Qa<CR> qa<CR>
 
-" Move to occurances
-map <Leader>f [I:let nr = input("Which one:")<Bar>exe "normal " . nr . "[\t"<CR>
-
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -303,6 +304,9 @@ nnoremap dgb :diffget //3<CR>
 
 " Turn off Ex mode - I hate that thing.
 nnoremap Q <nop>
+
+" Apply formatting tools
+nnoremap <Leader>f :Format<CR>
 
 " }}}
 
@@ -420,20 +424,10 @@ if has('nvim')
 endif
 " }}}
 
-" Load LSP config
+" Load Lua configuration
 lua require('lsp-config')
-
-" {{{ Treesitter configuration 
-lua <<EOF
-local treesitter = require('nvim-treesitter.configs')
-treesitter.setup {
-    highlight = {
-        enable = true
-    },
-}
-EOF
-" }}}
-
+lua require('formatting')
+lua require('treesitter')
 
 " Load vimrc in each directory that vim is opened in.
 " This provides 'per project' vim config.

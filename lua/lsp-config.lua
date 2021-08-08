@@ -19,6 +19,7 @@ compe.setup {
   }
 }
 
+-- Handler to attach LSP keymappings to buffers using LSP.
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -71,21 +72,6 @@ nvim_lsp.intelephense.setup {
   on_attach = on_attach,
 }
 
--- Async formatting helper
-local format_async = function(err, _, result, _, bufnr)
-  if err ~= nil or result == nil then
-    return
-  end
-  if not vim.api.nvim_buf_get_option(bufnr, "modified") then
-      local view = vim.fn.winsaveview()
-      vim.lsp.util.apply_text_edits(result, bufnr)
-      vim.fn.winrestview(view)
-      if bufnr == vim.api.nvim_get_current_buf() then
-          vim.api.nvim_command("noautocmd :update")
-      end
-  end
-end
-vim.lsp.handlers["textDocument/formatting"] = format_async
 
 --- Linter setup
 local filetypes = {
@@ -98,7 +84,7 @@ local filetypes = {
 local linters = {
   eslint = {
     sourceName = "eslint",
-    command = "eslint",
+    command = "./node_modules/.bin/eslint",
     rootPatterns = {".eslintrc.js", "package.json"},
     debouce = 100,
     args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
@@ -158,45 +144,13 @@ local linters = {
   },
 }
 
---- Formatters
-local formatFiletypes = {
-  typescript = "eslint",
-  typescriptreact = "eslint",
-  python = "black",
-  php = "phpcbf",
-}
-
-local formatters = {
-  eslint = {
-    command = "eslint",
-    args = {"--fix", "--fix-to-stdout", "--stdin", "--stdin-filepath", "%filepath"},
-  },
-  black = {
-    command = "black",
-    args = {"--stdin-filename", "%filepath"},
-  },
-  phpcbf = {
-    command = "./vendor/bin/phpcbf",
-    rootPatterns = {"composer.lock", "vendor", ".git"},
-    args = {"--standard=./phpcs.xml", "%file"},
-    isStdout = false,
-    doesWriteToFile = true,
-  },
-}
-
-local custom_attach = function(client)
-  on_attach(client)
-end
-vim.lsp.set_log_level("info")
-
 nvim_lsp.diagnosticls.setup {
   on_attach = custom_attach,
   filetypes = vim.tbl_keys(filetypes),
   init_options = {
     filetypes = filetypes,
     linters = linters,
-    formatters = formatters,
-    formatFiletypes = formatFiletypes,
   },
 }
+
 saga.init_lsp_saga()
