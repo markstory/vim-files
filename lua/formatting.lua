@@ -28,6 +28,13 @@ formatter.setup {
           args = {"-"},
           stdin = true,
         }
+      end,
+      function ()
+        return {
+          exe = '~/.pyenv/shims/isort',
+          args = {"-"},
+          stdin = true,
+        }
       end
     },
     php = {
