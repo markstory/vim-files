@@ -49,7 +49,6 @@ call plug#end()
 
 
 " {{{ Window and editor setup
-
 " Display line numbers and rulers.
 set number
 set ruler
@@ -142,7 +141,6 @@ endif
 " }}}
 
 " {{{ Searching
-"
 set hlsearch
 set incsearch
 set ignorecase
