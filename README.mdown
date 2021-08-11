@@ -17,14 +17,6 @@ npm install -g pyright intelephense
 npm install -g typescript typescript-language-server 
 ```
 
-And a general language server installed via Brew or `go get`
-
-```
-brew install efm-langserver
-# or
-go get github.com/mattn/efm-langserver
-```
-
 ### Treesitter setup
 
 Most syntax highlighting plugins have been replace with Treesitter packages.

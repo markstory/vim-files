@@ -13,7 +13,6 @@ compe.setup {
   throttle_time = 200;
   source_timeout = 150;
   source = {
-    buffer = true;
     nvim_lsp = true;
     nvim_lua = true;
   }
