@@ -18,6 +18,29 @@ compe.setup {
   }
 }
 
+-- short cut methods.
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+-- Close completion if the last char is .
+local check_back_space = function ()
+  local col = vim.fn.col('.') - 1
+  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
+
+-- Global function used to send <C-n> to compe
+-- if it is open, tab if it is closed, and compe refresh
+-- if we're at a break.
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+
 -- Handler to attach LSP keymappings to buffers using LSP.
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -49,9 +72,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>", opts)
 
   -- Autocomplete
-  buf_set_keymap("i", "<C-Space>", 'compe#complete()', {noremap=true, silent=true, expr=true})
-  buf_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {noremap=true, silent=true, expr=true})
-  buf_set_keymap("i", "<C-e>", "compe#close('<C-e>')", {noremap=true, silent=true, expr=true})
+  buf_set_keymap("i", "<C-Space>", 'compe#complete()', {noremap = true, silent = true, expr = true})
+  buf_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {noremap = true, silent = true, expr = true})
+  buf_set_keymap("i", "<Esc>", "compe#close('<Esc>')", {noremap = true, silent = true, expr = true})
+  buf_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 end
 
 -- Typescript
@@ -77,7 +101,7 @@ local filetypes = {
   typescript = "eslint",
   typescriptreact = "eslint",
   python = "flake8",
-  php = "phpcs",
+  php = {"phpcs", "psalm"},
 }
 
 local linters = {
@@ -120,6 +144,7 @@ local linters = {
   },
   phpcs = {
     command = "vendor/bin/phpcs",
+    sourceName = "phpcs",
     debounce = 300,
     rootPatterns = {"composer.lock", "vendor", ".git"},
     args = {"--report=emacs", "-s", "-"},
@@ -140,7 +165,33 @@ local linters = {
       error = "error",
       warning = "warning",
     },
+    requiredFiles = {"vendor/bin/phpcs"}
   },
+  psalm = {
+    command = "./vendor/bin/psalm",
+    sourceName = "psalm",
+    debounce = 100,
+    rootPatterns = {"composer.lock", "vendor", ".git"},
+    args = {"--output-format=emacs", "--no-progress"},
+    offsetLine = 0,
+    offsetColumn = 0,
+    sourceName = "psalm",
+    formatLines = 1,
+    formatPattern = {
+      "^[^ =]+ =(\\d+) =(\\d+) =(.*)\\s-\\s(.*)(\\r|\\n)*$",
+      {
+        line = 1,
+        column = 2,
+        message = 4,
+        security = 3
+      }
+    },
+    securities = {
+      error = "error",
+      warning = "warning"
+    },
+    requiredFiles = {"vendor/bin/psalm"}
+  }
 }
 
 nvim_lsp.diagnosticls.setup {
