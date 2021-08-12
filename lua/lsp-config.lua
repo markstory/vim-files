@@ -63,8 +63,8 @@ local on_attach = function(client, bufnr)
   -- Navigate and preview
   buf_set_keymap('n', 'gs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
   buf_set_keymap('n', 'gd', "<cmd>lua require('lspsaga.provider').preview_definition()<CR>", opts)
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gr', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
 
   -- View diagnostics
   buf_set_keymap('n', '<space>e', "<cmd>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>", opts)
@@ -203,4 +203,8 @@ nvim_lsp.diagnosticls.setup {
   },
 }
 
-saga.init_lsp_saga()
+saga.init_lsp_saga {
+  error_sign = '\u{F658}',
+  warn_sign = '\u{F071}',
+  hint_sign = '\u{F835}',
+}

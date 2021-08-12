@@ -364,6 +364,17 @@ hi link CocInfoFloat Pmenu
 hi link CocHintFloat Directory
 hi link CocHintFloat Pmenu
 
+" Neovim LSP & LspSaga
+call <sid>hi("LspFloatWinBorder", s:gui03, "", s:cterm03, "", "", "")
+hi link LspSagaDefPreviewBorder LspFloatWinBorder
+hi link LspSagaSignatureHelpBorder LspFloatWinBorder
+hi link LspSagaRenameBorder LspFloatWinBorder
+hi link LspSagaHoverBorder LspFloatWinBorder
+hi link LspSagaCodeActionBorder LspFloatWinBorder
+hi link LspSagaAutoPreviewBorder LspFloatWinBorder
+hi link LspSagaDefPreviewBorder LspFloatWinBorder
+
+
 " Fern
 hi link FernRoot WarningMsg
 hi link FernBranch Directory
