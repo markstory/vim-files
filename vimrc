@@ -35,8 +35,8 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " LSP
-Plug 'neovim/nvim-lspconfig', { 'branch': 'main' }
-Plug 'glepnir/lspsaga.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'hrsh7th/nvim-compe'
 Plug 'mhartington/formatter.nvim'
 
