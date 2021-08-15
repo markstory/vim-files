@@ -191,7 +191,7 @@ local linters = {
 }
 
 nvim_lsp.diagnosticls.setup {
-  on_attach = custom_attach,
+  on_attach = on_attach,
   filetypes = vim.tbl_keys(filetypes),
   init_options = {
     filetypes = filetypes,
