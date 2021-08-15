@@ -48,10 +48,6 @@ local on_attach = function(client, bufnr)
 
   vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
 
-  --- Local commands
-  -- Apply LSP formatting fixes
-  vim.cmd("command! Fix lua vim.lsp.buf.formatting()")
-
   --- Mappings
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gh', "<cmd>lua require('lspsaga.provider').lsp_finder()<CR>", opts)
