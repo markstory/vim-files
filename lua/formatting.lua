@@ -49,5 +49,3 @@ formatter.setup {
     }
   }
 }
-
-
