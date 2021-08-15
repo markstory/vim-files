@@ -197,7 +197,7 @@ call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Visual",        "", s:gui02, "", s:cterm02, "", "")
 call <sid>hi("VisualNOS",     s:gui08, "", s:cterm08, "", "", "")
-call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "", "")
+call <sid>hi("WarningMsg",    s:gui09, "", s:cterm09, "", "", "")
 call <sid>hi("WildMenu",      s:gui08, s:gui0A, s:cterm08, "", "", "")
 call <sid>hi("Title",         s:gui0D, "", s:cterm0D, "", "none", "")
 call <sid>hi("Conceal",       s:gui0D, s:gui00, s:cterm0D, s:cterm00, "", "")
@@ -373,10 +373,33 @@ hi link LspSagaDefPreviewBorder LspFloatWinBorder
 hi link LspSagaSignatureHelpBorder LspFloatWinBorder
 hi link LspSagaRenameBorder LspFloatWinBorder
 hi link LspSagaHoverBorder LspFloatWinBorder
+hi link LspSignatureHelpBorder LspFloatWinBorder
 hi link LspSagaCodeActionBorder LspFloatWinBorder
 hi link LspSagaAutoPreviewBorder LspFloatWinBorder
 hi link LspSagaDefPreviewBorder LspFloatWinBorder
+hi link LspSagaBorderTitle LspFloatWinBorder
+hi link LspSagaDiagnosticBorder LspFloatWinBorder
+hi link LspSagaDiagnosticHeader Title
 
+hi link LspSagaCodeActionTruncateLine LspFloatWinBorder
+hi link LspSagaDocTruncateLine LspFloatWinBorder
+hi link LspSagaDiagnosticTruncateLine LspFloatWinBorder
+
+hi link LspDiagnosticsVirtualTextError ErrorMsg
+hi link LspDiagnosticsVirtualTextWarning WarningMsg
+hi link LspDiagnosticsVirtualTextInformation MoreMsg
+hi link LspDiagnosticsVirtualTextHint Comment
+
+hi link LspDiagnosticsFloatingError ErrorMsg
+hi link LspDiagnosticsFloatingWarning WarningMsg
+hi link LspDiagnosticsFloatingInformation MoreMsg
+hi link LspDiagnosticsFloatingHint Normal
+
+" Signs need the same background as the number column.
+call <sid>hi("LspDiagnosticsSignError", s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
+call <sid>hi("LspDiagnosticsSignWarning", s:gui09, s:gui01, s:cterm09, s:cterm01, "", "")
+call <sid>hi("LspDiagnosticsSignInformation", s:gui0B, s:gui01, s:cterm0B, s:cterm01, "", "")
+call <sid>hi("LspDiagnosticsSignHint", s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
 
 " Fern
 hi link FernRoot WarningMsg
