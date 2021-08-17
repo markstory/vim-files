@@ -368,7 +368,9 @@ hi link CocHintFloat Directory
 hi link CocHintFloat Pmenu
 
 " Neovim LSP & LspSaga
+call <sid>hi("DiagnosticHint", s:gui04, "", s:cterm04, "", "", "")
 call <sid>hi("LspFloatWinBorder", s:gui03, "", s:cterm03, "", "", "")
+hi link LspLinesDiagBorder LspFloatWinBorder
 hi link LspSagaDefPreviewBorder LspFloatWinBorder
 hi link LspSagaSignatureHelpBorder LspFloatWinBorder
 hi link LspSagaRenameBorder LspFloatWinBorder
