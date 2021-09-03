@@ -297,7 +297,6 @@ nnoremap <Leader>f :Format<CR>
 " }}}
 
 " {{{ Custom commands
-"
 
 " XML Tidying
 :command Txml :%!tidy -q -i -xml
@@ -312,6 +311,11 @@ nnoremap <Leader>f :Format<CR>
 
 " Add w!! - sudo save
 cmap w!! w !sudo tee % >/dev/null
+
+" Vimwiki
+:command Wiki :VimwikiIndex
+:command Diary :VimwikiDiaryIndex
+:command DiaryNote :VimwikiMakeDiaryNote
 " }}}
 
 " {{{ Plugin config
@@ -334,9 +338,6 @@ let g:ragtag_global_maps = 1
 let g:vimwiki_list = [{ 'path': '~/Dropbox/vimwiki/' }]
 " Disable the default bindings as they make ,w slow
 let g:vimwiki_key_mappings = { 'global': 0, }
-:command Wiki :VimwikiIndex
-:command Diary :VimwikiDiaryIndex
-:command DiaryNote :VimwikiMakeDiaryNote
 
 " Ack plugin
 map <Leader>a :Ack<Space>
