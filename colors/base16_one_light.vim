@@ -23,10 +23,10 @@ let g:base16_gui02 = "e5e5e6"
 " Gray 300. Muted Foreground
 let s:gui03        = "a0a1a7"
 let g:base16_gui03 = "a0a1a7"
-" Gray 400. Medium Foreground
+" Gray 400. Medium Foreground, Dark background
 let s:gui04        = "696c77"
 let g:base16_gui04 = "696c77"
-" Gray 500. Medium-Dark Foreground
+" Gray 500. Medium-Dark Foreground, Darker background
 let s:gui05        = "383a42"
 let g:base16_gui05 = "383a42"
 " Gray 600. Foreground
