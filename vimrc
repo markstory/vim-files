@@ -40,9 +40,8 @@ Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'hrsh7th/nvim-compe'
 Plug 'mhartington/formatter.nvim'
 
-" Visuals
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Statusline
+Plug 'hoob3rt/lualine.nvim'
 
 call plug#end()
 " }}}
@@ -415,6 +414,7 @@ endif
 lua require('lsp-config')
 lua require('formatting')
 lua require('treesitter')
+lua require('lualine-config')
 
 " Load vimrc in each directory that vim is opened in.
 " This provides 'per project' vim config.

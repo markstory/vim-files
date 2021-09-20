@@ -10,36 +10,53 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 "
 " GUI color definitions
+
+" Almost white. Background
 let s:gui00        = "fafafa"
 let g:base16_gui00 = "fafafa"
+" Gray 100. Secondary Background
 let s:gui01        = "f0f0f1"
 let g:base16_gui01 = "f0f0f1"
+" Gray 200. Tertiary Background
 let s:gui02        = "e5e5e6"
 let g:base16_gui02 = "e5e5e6"
+" Gray 300. Muted Foreground
 let s:gui03        = "a0a1a7"
 let g:base16_gui03 = "a0a1a7"
+" Gray 400. Medium Foreground
 let s:gui04        = "696c77"
 let g:base16_gui04 = "696c77"
+" Gray 500. Medium-Dark Foreground
 let s:gui05        = "383a42"
 let g:base16_gui05 = "383a42"
+" Gray 600. Foreground
 let s:gui06        = "202227"
 let g:base16_gui06 = "202227"
+" Gray 700. High Contrast Foreground
 let s:gui07        = "090a0b"
 let g:base16_gui07 = "090a0b"
+" Red
 let s:gui08        = "ca1243"
 let g:base16_gui08 = "ca1243"
+" Orange
 let s:gui09        = "d75f00"
 let g:base16_gui09 = "d75f00"
+" Gold/Yellow
 let s:gui0A        = "c18401"
 let g:base16_gui0A = "c18401"
+" Green
 let s:gui0B        = "50a14f"
 let g:base16_gui0B = "50a14f"
+" Cyan/Light Blue
 let s:gui0C        = "0184bc"
 let g:base16_gui0C = "0184bc"
+" Blue
 let s:gui0D        = "4078f2"
 let g:base16_gui0D = "4078f2"
+" Purple
 let s:gui0E        = "a626a4"
 let g:base16_gui0E = "a626a4"
+" Gold/Brown
 let s:gui0F        = "986801"
 let g:base16_gui0F = "986801"
 
@@ -201,7 +218,7 @@ call <sid>hi("WarningMsg",    s:gui09, "", s:cterm09, "", "", "")
 call <sid>hi("WildMenu",      s:gui08, s:gui0A, s:cterm08, "", "", "")
 call <sid>hi("Title",         s:gui0D, "", s:cterm0D, "", "none", "")
 call <sid>hi("Conceal",       s:gui0D, s:gui00, s:cterm0D, s:cterm00, "", "")
-call <sid>hi("Cursor",        s:gui00, s:gui05, s:cterm00, s:cterm05, "", "")
+call <sid>hi("Cursor",        s:gui0D, s:gui05, s:cterm00, s:cterm05, "", "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("LineNr",        s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
 call <sid>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
