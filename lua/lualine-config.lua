@@ -11,7 +11,7 @@ local colors = {
   gray200  = '#e5e5e6',
   gray300  = '#a0a1a7',
 
-  fg_med = '#696c77',
+  gray400 = '#696c77',
 }
 
 onelight_theme = {
@@ -24,18 +24,18 @@ onelight_theme = {
   visual = {a = {fg = colors.bg, bg = colors.purple, gui = 'bold'}},
   replace = {a = {fg = colors.bg, bg = colors.red, gui = 'bold'}},
   inactive = {
-    a = {fg = colors.fg_med, bg = colors.gray100, gui = 'bold'},
-    b = {fg = colors.fg_med, bg = colors.gray100},
-    c = {fg = colors.fg_med, bg = colors.gray100}
+    a = {fg = colors.gray400, bg = colors.gray100, gui = 'bold'},
+    b = {fg = colors.gray400, bg = colors.gray100},
+    c = {fg = colors.gray400, bg = colors.gray100}
   }
 }
 
 light_muted = {
-  fg = colors.fg_med,
+  fg = colors.gray400,
   bg = colors.gray100,
 }
 medium_muted = {
-  fg = colors.fg_med,
+  fg = colors.gray400,
   bg = colors.gray200,
 }
 
@@ -61,6 +61,12 @@ require('lualine').setup({
   },
   sections = {
     lualine_a = {short_mode},
+    lualine_b = {
+      {
+        'branch',
+        color = medium_muted,
+      }
+    },
     lualine_x = {
       {
         'encoding',
