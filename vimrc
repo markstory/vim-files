@@ -345,35 +345,6 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-" {{{ Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-
-let g:airline_theme='base16_one_light'
-
-let g:airline_left_sep=""
-let g:airline_right_sep=""
-let g:airline_symbols = {}
-let g:airline_symbols.paste = "\uF691"
-let g:airline_symbols.linenr = "\uE0A1"
-let g:airline_symbols.branch = "\uF126"
-let g:airline_symbols.readonly = "\uE0A2"
-let g:airline_symbols.whitespace = "Ξ"
-let g:airline_symbols.notexists = "\uF128"
-
-" Only show the column number.
-let g:airline_section_z = 'c:%c'
-" Use short forms for common modes.
-let g:airline_mode_map = {
-    \ 'n'  : 'N',
-    \ 'i'  : 'I',
-    \ 'R'  : 'R',
-    \ 'v'  : 'V',
-    \ 's'  : 'S',
-    \ 't'  : 'T',
-    \ }
-" }}}
-
 " {{{ fzf
 " Fuzzy finder depends on `brew install fzf` or git install for linux.
 if has('macunix')

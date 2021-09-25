@@ -10,7 +10,6 @@ local colors = {
   gray100  = '#f0f0f1',
   gray200  = '#e5e5e6',
   gray300  = '#a0a1a7',
-
   gray400 = '#696c77',
 }
 
@@ -59,6 +58,7 @@ require('lualine').setup({
     section_separators = {'\u{E0B4}', '\u{E0B6}'},
     component_separators = {'\u{E0B5}', '\u{E0B7}'},
   },
+  extensions = {'fugitive'},
   sections = {
     lualine_a = {short_mode},
     lualine_b = {
@@ -66,6 +66,19 @@ require('lualine').setup({
         'branch',
         color = medium_muted,
       }
+    },
+    lualine_c = {
+      {
+        'diff',
+        colored = true,
+        color = light_muted,
+        separator = '\u{E0B7}',
+      },
+      {
+        'filename',
+        file_status = true,
+        path = 1,
+      },
     },
     lualine_x = {
       {
@@ -87,5 +100,10 @@ require('lualine').setup({
         color = medium_muted,
       }
     }
-  }
+  },
+  inactive_sections = {
+    lualine_c = {
+      {'filename', path = 1},
+    },
+  },
 })
