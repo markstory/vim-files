@@ -65,6 +65,7 @@ require('lualine').setup({
       {
         'branch',
         color = medium_muted,
+        icon = '\u{F126}',
       }
     },
     lualine_c = {
