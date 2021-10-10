@@ -46,11 +46,19 @@ local short_map = {
   ['VISUAL'] = 'V',
   ['REPLACE'] = 'R',
 }
-function short_mode()
+local function short_mode()
   local mode = get_mode()
   if short_map[mode] == nil then return mode end
   return short_map[mode]
 end
+
+-- Extension for fern file explorer.
+local fern_extension = {}
+local function fern_path()
+  return vim.fn.fnamemodify(vim.fn.getcwd(), ':~')
+end
+fern_extension.sections = {lualine_a = {fern_path}}
+fern_extension.filetypes = {'fern'}
 
 require('lualine').setup({
   options = {
@@ -58,7 +66,7 @@ require('lualine').setup({
     section_separators = {'\u{E0B4}', '\u{E0B6}'},
     component_separators = {'\u{E0B5}', '\u{E0B7}'},
   },
-  extensions = {'fugitive'},
+  extensions = {'fugitive', fern_extension},
   sections = {
     lualine_a = {short_mode},
     lualine_b = {
