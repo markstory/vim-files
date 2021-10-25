@@ -41,7 +41,7 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'mhartington/formatter.nvim'
 
 " Statusline
-Plug 'hoob3rt/lualine.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 
 call plug#end()
 " }}}
