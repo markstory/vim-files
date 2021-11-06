@@ -174,12 +174,14 @@ local linters = {
     sourceName = "psalm",
     formatLines = 1,
     formatPattern = {
-      "^[^ =]+ =(\\d+) =(\\d+) =(.*)\\s-\\s(.*)(\\r|\\n)*$",
+      '^(.*):(\\d+):(\\d+):(.*)\\s-\\s(.*)$',
       {
-        line = 1,
-        column = 2,
-        message = 4,
-        security = 3
+        sourceName = 1,
+        sourceNameFilter = true,
+        line = 2,
+        column = 3,
+        message = 5,
+        security = 4
       }
     },
     securities = {
