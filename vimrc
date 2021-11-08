@@ -202,7 +202,7 @@ au BufRead,BufNewFile {*.mustache,*.hbs} set ft=mustache
 au BufRead,BufNewFile Jenkinsfile set ft=groovy
 
 " Lector and Gatsby use custom file types, but markdown contents.
-au BufNewFile,BufRead {*.mdx,*.lr} set ft=markdown
+au BufNewFile,BufRead {*.mdx,*.lr,*.md} set ft=markdown
 
 " Lua
 au BufRead,BufNewFile *.lua set ft=lua
