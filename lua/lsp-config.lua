@@ -1,6 +1,6 @@
 --- Configuration for LSP, formatters, and linters.
 local nvim_lsp = require("lspconfig")
-local saga = require("lspsaga")
+local lspsaga = require("lspsaga")
 
 -- Completion setup
 local compe = require("compe")
@@ -48,10 +48,16 @@ local on_attach = function(client, bufnr)
 
   vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
 
-  --- Mappings
+  -- Hover
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gh', "<cmd>lua require('lspsaga.provider').lsp_finder()<CR>", opts)
-  buf_set_keymap('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
+  -- this isn't working right now for some reason :(
+  --buf_set_keymap('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+
+  -- code actions
+  buf_set_keymap('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
+  buf_set_keymap('v', '<leader>ca', "<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
 
   -- scroll down in popups
   buf_set_keymap('n', '<C-b>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
@@ -201,7 +207,7 @@ nvim_lsp.diagnosticls.setup {
   },
 }
 
-saga.init_lsp_saga {
+lspsaga.init_lsp_saga {
   error_sign = '\u{F658}',
   warn_sign = '\u{F071}',
   hint_sign = '\u{F835}',

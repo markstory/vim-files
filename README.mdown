@@ -14,7 +14,7 @@ LSP features require a few more dependencies that aren't automated because platf
 ```shell
 # Get the following packages installed as global node modules.
 npm install -g pyright intelephense diagnostic-languageserver
-npm install -g typescript typescript-language-server 
+npm install -g typescript typescript-language-server
 ```
 
 ### Treesitter setup

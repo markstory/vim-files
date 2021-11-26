@@ -348,7 +348,7 @@ endif
 " {{{ fzf
 " Fuzzy finder depends on `brew install fzf` or git install for linux.
 if has('macunix')
-    set rtp+=/usr/local/opt/fzf
+    set rtp+=/opt/homebrew/opt/fzf
 else
     set rtp+=~/.fzf
 endif
