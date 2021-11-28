@@ -56,8 +56,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
   -- code actions
-  buf_set_keymap('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
-  buf_set_keymap('v', '<leader>ca', "<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
+  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+  -- These currently error, so I'm using the basic function for now.
+  -- buf_set_keymap('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
+  -- buf_set_keymap('v', '<leader>ca', "<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
 
   -- scroll down in popups
   buf_set_keymap('n', '<C-b>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
