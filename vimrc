@@ -27,7 +27,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'timcharper/textile.vim'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-markdown'
-Plug 'vim-scripts/groovy.vim', { 'for': 'groovy' }
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mitsuhiko/vim-jinja'
 
@@ -198,9 +197,6 @@ au BufNewFile,BufRead {*.es6} set ft=javascript
 " hbs and mustache files.
 au BufRead,BufNewFile {*.mustache,*.hbs} set ft=mustache
 
-" Jenkinsfile are groovy
-au BufRead,BufNewFile Jenkinsfile set ft=groovy
-
 " Lector and Gatsby use custom file types, but markdown contents.
 au BufNewFile,BufRead {*.mdx,*.lr,*.md} set ft=markdown
 
@@ -226,8 +222,8 @@ au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 colo
 " Javascript, CSS, lua, and HTML settings
 au FileType {css,javascriptreact,typescriptreact,typescript,javascript,mustache,htmljinja,html,lua} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
 
-" CoffeeScript, Groovy, Elm, Docker
-au FileType {coffee,groovy,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
+" CoffeeScript, Elm, Docker
+au FileType {coffee,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
 
 " }}}
 
