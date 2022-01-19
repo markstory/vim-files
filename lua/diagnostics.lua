@@ -19,16 +19,15 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = true,
   float = {
-    border = 'rounded',
     focusable = false,
-    header = { 'Diagnostics \u{F188}', 'Normal' },
+    header = { 'Diagnostics \u{F188}', 'Title' },
     source = 'always',
   },
   virtual_text = {
     spacing = 4,
     source = 'always',
     severity = {
-      min =vim.diagnostic.severity.HINT,
+      min = vim.diagnostic.severity.HINT,
     }
   },
 })

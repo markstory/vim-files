@@ -385,15 +385,10 @@ hi link CocHintFloat Directory
 hi link CocHintFloat Pmenu
 
 " Neovim LSP & LspSaga
-call <sid>hi("DiagnosticHint", s:gui04, "", s:cterm04, "", "", "")
-call <sid>hi("LspFloatWinBorder", s:gui03, "", s:cterm03, "", "", "")
-" hi link LspLinesDiagBorder LspFloatWinBorder
-" hi link LspSagaDefPreviewBorder LspFloatWinBorder
-" hi link LspSagaSignatureHelpBorder LspFloatWinBorder
-" hi link LspSagaRenameBorder LspFloatWinBorder
-" hi link LspSagaHoverBorder LspFloatWinBorder
-" hi link LspSignatureHelpBorder LspFloatWinBorder
-" 
+call <sid>hi("FloatBorder", s:gui03, "", s:cterm03, "", "", "")
+hi link FloatBorder Pmenu
+hi link NormalFloat Normal
+
 " hi link LspSagaCodeActionBorder LspFloatWinBorder
 " hi link LspSagaAutoPreviewBorder LspFloatWinBorder
 " hi link LspSagaDefPreviewBorder LspFloatWinBorder
@@ -405,15 +400,21 @@ call <sid>hi("LspFloatWinBorder", s:gui03, "", s:cterm03, "", "", "")
 " hi link LspSagaDocTruncateLine LspFloatWinBorder
 " hi link LspSagaDiagnosticTruncateLine LspFloatWinBorder
 
-hi link LspDiagnosticVirtualTextError ErrorMsg
-hi link LspDiagnosticVirtualTextWarning WarningMsg
-hi link LspDiagnosticVirtualTextInformation MoreMsg
-hi link LspDiagnosticVirtualTextHint Comment
+" Diagnostic messages.
+hi link DiagnosticError ErrorMsg
+hi link DiagnosticWarn WarningMsg
+hi link DiagnosticInfo MoreMsg
+hi link DiagnosticHint Comment
 
-hi link LspDiagnosticFloatingError ErrorMsg
-hi link LspDiagnosticFloatingWarning WarningMsg
-hi link LspDiagnosticFloatingInformation MoreMsg
-hi link LspDiagnosticFloatingHint Normal
+hi link DiagnosticFloatingError ErrorMsg
+hi link DiagnosticFloatingWarn WarningMsg
+hi link DiagnosticFloatingInfo MoreMsg
+hi link DiagnosticFloatingHint Comment
+
+hi link DiagnosticVirtualTextError ErrorMsg
+hi link DiagnosticVirtualTextWarn WarningMsg
+hi link DiagnosticVirtualTextInfo MoreMsg
+hi link DiagnosticVirtualTextHint Comment
 
 " Signs need the same background as the number column.
 call <sid>hi("DiagnosticSignError", s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")

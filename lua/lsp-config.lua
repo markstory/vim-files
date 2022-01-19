@@ -39,6 +39,18 @@ _G.tab_complete = function()
   end
 end
 
+-- Definition peek
+local function preview_location_callback(_, result)
+  if result == nil or vim.tbl_isempty(result) then
+    return nil
+  end
+  vim.lsp.util.preview_location(result[1])
+end
+_G.lsp_peek_definition = function()
+  local params = vim.lsp.util.make_position_params()
+  return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
+end
+
 -- Handler to attach LSP keymappings to buffers using LSP.
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -55,15 +67,15 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
 
   -- Navigate and preview
-  --buf_set_keymap('n', 'gd', "<cmd>lua require('lspsaga.provider').preview_definition()<CR>", opts)
+  buf_set_keymap('n', 'gd', "<cmd>lua lsp_peek_definition()<CR>", opts)
   buf_set_keymap('n', 'gs', "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gr', "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
   -- View diagnostics
   buf_set_keymap('n', '<space>e', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  --buf_set_keymap('n', '[d', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()<CR>", opts)
-  --buf_set_keymap('n', ']d', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>", opts)
+  buf_set_keymap('n', '[d', "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+  buf_set_keymap('n', ']d', "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 
   -- Autocomplete
   buf_set_keymap("i", "<C-Space>", 'compe#complete()', {noremap = true, silent = true, expr = true})
@@ -71,14 +83,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("i", "<Esc>", "compe#close('<Esc>')", {noremap = true, silent = true, expr = true})
   buf_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 end
-
--- Make floating windows have rounded borders. (doesn't work yet)
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'rounded',
-})
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = 'rounded',
-})
 
 -- Typescript
 nvim_lsp.tsserver.setup {
@@ -96,3 +100,22 @@ nvim_lsp.pyright.setup {
 nvim_lsp.intelephense.setup {
   on_attach = on_attach,
 }
+
+
+-- Make all LSP windows have consistent borders.
+local border = {
+    {'\u{250C}', "FloatBorder"},
+    {"\u{2500}", "FloatBorder"},
+    {"\u{2510}", "FloatBorder"},
+    {"\u{2502}", "FloatBorder"},
+    {"\u{2518}", "FloatBorder"},
+    {"\u{2500}", "FloatBorder"},
+    {"\u{2514}", "FloatBorder"},
+    {"\u{2502}", "FloatBorder"},
+}
+local orig_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_floating_preview(contents, syntax, opts, ...)
+end
