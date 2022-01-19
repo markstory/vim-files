@@ -20,7 +20,7 @@ vim.diagnostic.config({
   severity_sort = true,
   float = {
     focusable = false,
-    header = { 'Diagnostics \u{F188}', 'Title' },
+    header = { '\u{F188} Diagnostics', 'Title' },
     source = 'always',
   },
   virtual_text = {
