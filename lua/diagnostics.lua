@@ -23,13 +23,7 @@ vim.diagnostic.config({
     header = { '\u{F188} Diagnostics', 'Title' },
     source = 'always',
   },
-  virtual_text = {
-    spacing = 4,
-    source = 'always',
-    severity = {
-      min = vim.diagnostic.severity.HINT,
-    }
-  },
+  virtual_text = false,
 })
 
 
