@@ -1,6 +1,4 @@
---- Configuration for LSP, formatters, and linters.
 local nvim_lsp = require("lspconfig")
-local lspsaga = require("lspsaga")
 
 -- Completion setup
 local compe = require("compe")
@@ -50,31 +48,22 @@ local on_attach = function(client, bufnr)
 
   -- Hover
   local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gh', "<cmd>lua require('lspsaga.provider').lsp_finder()<CR>", opts)
-  -- this isn't working right now for some reason :(
-  --buf_set_keymap('n', 'K', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
   -- code actions
   buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
-  -- These currently error, so I'm using the basic function for now.
-  -- buf_set_keymap('n', '<leader>ca', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
-  -- buf_set_keymap('v', '<leader>ca', "<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", opts)
-
-  -- scroll down in popups
-  buf_set_keymap('n', '<C-b>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
 
   -- Navigate and preview
-  buf_set_keymap('n', 'gs', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
-  buf_set_keymap('n', 'gd', "<cmd>lua require('lspsaga.provider').preview_definition()<CR>", opts)
+  --buf_set_keymap('n', 'gd', "<cmd>lua require('lspsaga.provider').preview_definition()<CR>", opts)
+  buf_set_keymap('n', 'gs', "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gr', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
+  buf_set_keymap('n', 'gr', "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
   -- View diagnostics
-  buf_set_keymap('n', '<space>e', "<cmd>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>", opts)
-  buf_set_keymap('n', '[d', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()<CR>", opts)
-  buf_set_keymap('n', ']d', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>", opts)
+  buf_set_keymap('n', '<space>e', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  --buf_set_keymap('n', '[d', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_prev()<CR>", opts)
+  --buf_set_keymap('n', ']d', "<cmd>lua require('lspsaga.diagnostic').lsp_jump_diagnostic_next()<CR>", opts)
 
   -- Autocomplete
   buf_set_keymap("i", "<C-Space>", 'compe#complete()', {noremap = true, silent = true, expr = true})
@@ -82,6 +71,14 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("i", "<Esc>", "compe#close('<Esc>')", {noremap = true, silent = true, expr = true})
   buf_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 end
+
+-- Make floating windows have rounded borders. (doesn't work yet)
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = 'rounded',
+})
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = 'rounded',
+})
 
 -- Typescript
 nvim_lsp.tsserver.setup {
@@ -98,120 +95,4 @@ nvim_lsp.pyright.setup {
 -- PHP
 nvim_lsp.intelephense.setup {
   on_attach = on_attach,
-}
-
-
---- Linter setup
-local filetypes = {
-  typescript = "eslint",
-  typescriptreact = "eslint",
-  python = "flake8",
-  php = {"phpcs", "psalm"},
-}
-
-local linters = {
-  eslint = {
-    sourceName = "eslint",
-    command = "./node_modules/.bin/eslint",
-    rootPatterns = {".eslintrc.js", "package.json"},
-    debouce = 100,
-    args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
-    parseJson = {
-      errorsRoot = "[0].messages",
-      line = "line",
-      column = "column",
-      endLine = "endLine",
-      endColumn = "endColumn",
-      message = "${message} [${ruleId}]",
-      security = "severity"
-    },
-    securities = {[2] = "error", [1] = "warning"}
-  },
-  flake8 = {
-    command = "flake8",
-    sourceName = "flake8",
-    args = {"--format", "%(row)d:%(col)d:%(code)s: %(text)s", "%file"},
-    formatPattern = {
-      "^(\\d+):(\\d+):(\\w+):(\\w).+: (.*)$",
-      {
-          line = 1,
-          column = 2,
-          message = {"[", 3, "] ", 5},
-          security = 4
-      }
-    },
-    securities = {
-      E = "error",
-      W = "warning",
-      F = "info",
-      B = "hint",
-    },
-  },
-  phpcs = {
-    command = "vendor/bin/phpcs",
-    sourceName = "phpcs",
-    debounce = 300,
-    rootPatterns = {"composer.lock", "vendor", ".git"},
-    args = {"--report=emacs", "-s", "-"},
-    offsetLine = 0,
-    offsetColumn = 0,
-    sourceName = "phpcs",
-    formatLines = 1,
-    formatPattern = {
-      "^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$",
-      {
-        line = 1,
-        column = 2,
-        message = 4,
-        security = 3
-      }
-    },
-    securities = {
-      error = "error",
-      warning = "warning",
-    },
-    requiredFiles = {"vendor/bin/phpcs"}
-  },
-  psalm = {
-    command = "./vendor/bin/psalm",
-    sourceName = "psalm",
-    debounce = 100,
-    rootPatterns = {"composer.lock", "vendor", ".git"},
-    args = {"--output-format=emacs", "--no-progress"},
-    offsetLine = 0,
-    offsetColumn = 0,
-    sourceName = "psalm",
-    formatLines = 1,
-    formatPattern = {
-      '^(.*):(\\d+):(\\d+):(.*)\\s-\\s(.*)$',
-      {
-        sourceName = 1,
-        sourceNameFilter = true,
-        line = 2,
-        column = 3,
-        message = 5,
-        security = 4
-      }
-    },
-    securities = {
-      error = "error",
-      warning = "warning"
-    },
-    requiredFiles = {"vendor/bin/psalm"}
-  }
-}
-
-nvim_lsp.diagnosticls.setup {
-  on_attach = on_attach,
-  filetypes = vim.tbl_keys(filetypes),
-  init_options = {
-    filetypes = filetypes,
-    linters = linters,
-  },
-}
-
-lspsaga.init_lsp_saga {
-  error_sign = '\u{F658}',
-  warn_sign = '\u{F071}',
-  hint_sign = '\u{F835}',
 }

@@ -387,38 +387,39 @@ hi link CocHintFloat Pmenu
 " Neovim LSP & LspSaga
 call <sid>hi("DiagnosticHint", s:gui04, "", s:cterm04, "", "", "")
 call <sid>hi("LspFloatWinBorder", s:gui03, "", s:cterm03, "", "", "")
-hi link LspLinesDiagBorder LspFloatWinBorder
-hi link LspSagaDefPreviewBorder LspFloatWinBorder
-hi link LspSagaSignatureHelpBorder LspFloatWinBorder
-hi link LspSagaRenameBorder LspFloatWinBorder
-hi link LspSagaHoverBorder LspFloatWinBorder
-hi link LspSignatureHelpBorder LspFloatWinBorder
-hi link LspSagaCodeActionBorder LspFloatWinBorder
-hi link LspSagaAutoPreviewBorder LspFloatWinBorder
-hi link LspSagaDefPreviewBorder LspFloatWinBorder
-hi link LspSagaBorderTitle LspFloatWinBorder
-hi link LspSagaDiagnosticBorder LspFloatWinBorder
-hi link LspSagaDiagnosticHeader Title
+" hi link LspLinesDiagBorder LspFloatWinBorder
+" hi link LspSagaDefPreviewBorder LspFloatWinBorder
+" hi link LspSagaSignatureHelpBorder LspFloatWinBorder
+" hi link LspSagaRenameBorder LspFloatWinBorder
+" hi link LspSagaHoverBorder LspFloatWinBorder
+" hi link LspSignatureHelpBorder LspFloatWinBorder
+" 
+" hi link LspSagaCodeActionBorder LspFloatWinBorder
+" hi link LspSagaAutoPreviewBorder LspFloatWinBorder
+" hi link LspSagaDefPreviewBorder LspFloatWinBorder
+" hi link LspSagaBorderTitle LspFloatWinBorder
+" hi link LspSagaDiagnosticBorder LspFloatWinBorder
+" hi link LspSagaDiagnosticHeader Title
+" 
+" hi link LspSagaCodeActionTruncateLine LspFloatWinBorder
+" hi link LspSagaDocTruncateLine LspFloatWinBorder
+" hi link LspSagaDiagnosticTruncateLine LspFloatWinBorder
 
-hi link LspSagaCodeActionTruncateLine LspFloatWinBorder
-hi link LspSagaDocTruncateLine LspFloatWinBorder
-hi link LspSagaDiagnosticTruncateLine LspFloatWinBorder
+hi link LspDiagnosticVirtualTextError ErrorMsg
+hi link LspDiagnosticVirtualTextWarning WarningMsg
+hi link LspDiagnosticVirtualTextInformation MoreMsg
+hi link LspDiagnosticVirtualTextHint Comment
 
-hi link LspDiagnosticsVirtualTextError ErrorMsg
-hi link LspDiagnosticsVirtualTextWarning WarningMsg
-hi link LspDiagnosticsVirtualTextInformation MoreMsg
-hi link LspDiagnosticsVirtualTextHint Comment
-
-hi link LspDiagnosticsFloatingError ErrorMsg
-hi link LspDiagnosticsFloatingWarning WarningMsg
-hi link LspDiagnosticsFloatingInformation MoreMsg
-hi link LspDiagnosticsFloatingHint Normal
+hi link LspDiagnosticFloatingError ErrorMsg
+hi link LspDiagnosticFloatingWarning WarningMsg
+hi link LspDiagnosticFloatingInformation MoreMsg
+hi link LspDiagnosticFloatingHint Normal
 
 " Signs need the same background as the number column.
-call <sid>hi("LspDiagnosticsSignError", s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
-call <sid>hi("LspDiagnosticsSignWarning", s:gui09, s:gui01, s:cterm09, s:cterm01, "", "")
-call <sid>hi("LspDiagnosticsSignInformation", s:gui0B, s:gui01, s:cterm0B, s:cterm01, "", "")
-call <sid>hi("LspDiagnosticsSignHint", s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
+call <sid>hi("DiagnosticSignError", s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
+call <sid>hi("DiagnosticSignWarn", s:gui09, s:gui01, s:cterm09, s:cterm01, "", "")
+call <sid>hi("DiagnosticSignInfo", s:gui0B, s:gui01, s:cterm0B, s:cterm01, "", "")
+call <sid>hi("DiagnosticSignHint", s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
 
 " Fern
 hi link FernRoot WarningMsg

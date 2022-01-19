@@ -35,7 +35,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'hrsh7th/nvim-compe'
 Plug 'mhartington/formatter.nvim'
 
@@ -382,6 +381,7 @@ lua require('lsp-config')
 lua require('formatting')
 lua require('treesitter')
 lua require('lualine-config')
+lua require('diagnostics')
 
 " Load vimrc in each directory that vim is opened in.
 " This provides 'per project' vim config.
