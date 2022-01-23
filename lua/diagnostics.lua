@@ -78,19 +78,16 @@ local linters = {
     sourceName = "phpcs",
     debounce = 300,
     rootPatterns = {"composer.lock", "vendor", ".git"},
-    args = {"--report=emacs", "-s", "-"},
-    offsetLine = 0,
-    offsetColumn = 0,
+    args = {"--report=json", "--stdin-path=%filepath", "-s", "-"},
     sourceName = "phpcs",
-    formatLines = 1,
-    formatPattern = {
-      "^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$",
-      {
-        line = 1,
-        column = 2,
-        message = 4,
-        security = 3
-      }
+    parseJson = {
+      errorsRoot =  'files.["%filepath"].messages',
+      line = 'line',
+      column = 'column',
+      endLine = 'line',
+      endColumn = 'column',
+      message = '[phpcs] ${message} [${source}]',
+      security = 'type',
     },
     securities = {
       error = "error",
