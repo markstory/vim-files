@@ -96,7 +96,7 @@ local linters = {
     requiredFiles = {"vendor/bin/phpcs"}
   },
   psalm = {
-    command = "vendor/bin/psalm",
+    command = "vendor/bin/psalm.phar",
     sourceName = "psalm",
     debounce = 100,
     rootPatterns = {"composer.lock", "vendor", ".git"},
@@ -120,7 +120,7 @@ local linters = {
       error = "error",
       warning = "warning"
     },
-    requiredFiles = {"vendor/bin/psalm"}
+    requiredFiles = {"vendor/bin/psalm.phar"}
   }
 }
 
