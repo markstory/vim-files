@@ -41,6 +41,9 @@ Plug 'mhartington/formatter.nvim'
 " Statusline
 Plug 'nvim-lualine/lualine.nvim'
 
+" Theme
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
 call plug#end()
 " }}}
 
@@ -104,15 +107,6 @@ set ttyfast
 set lazyredraw
 
 " }}}
-
-" {{{ Colors and cursors
-
-" Default color scheme
-set noshowmode
-set termguicolors
-set background=light
-
-color base16_one_light
 
 " Set cursor shaping.
 " Setting colors on n-v-c causes text inside the
@@ -377,6 +371,7 @@ endif
 " }}}
 
 " Load Lua configuration
+lua require('colors')
 lua require('lsp-config')
 lua require('formatting')
 lua require('treesitter')
