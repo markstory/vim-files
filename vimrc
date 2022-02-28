@@ -14,11 +14,17 @@ Plug 'Townk/vim-autoclose'
 Plug 'duff/vim-scratch'
 Plug 'markstory/vim-zoomwin'
 
-" Search and nav
-Plug 'mileszs/ack.vim'
+" Project Drawer
 Plug 'lambdalisue/fern.vim'
-Plug 'ddollar/nerdcommenter'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+
+" Search and find
+Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
+
+" Commenting, Git and Wiki
+Plug 'ddollar/nerdcommenter'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
@@ -309,6 +315,7 @@ cmap w!! w !sudo tee % >/dev/null
 " {{{ Plugin config
 
 " Fern
+let g:fern#renderer = "nerdfont"
 map <Leader>n :Fern . -drawer<CR>
 map <Leader>nr :Fern . -drawer -reveal=%<CR>
 
