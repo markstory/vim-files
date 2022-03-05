@@ -341,43 +341,16 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-" {{{ fzf
+" fzf
 " Fuzzy finder depends on `brew install fzf` or git install for linux.
 if has('macunix')
     set rtp+=/opt/homebrew/opt/fzf
 else
     set rtp+=~/.fzf
 endif
-
-"let g:fzf_colors = {
-"  \ 'fg':      ['fg', 'Normal'],
-"  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"  \ 'bg':      ['bg', 'Normal'],
-"  \ 'bg+':     ['fg', 'IncSearch'],
-"  \ 'hl':      ['fg', 'Question'],
-"  \ 'hl+':     ['fg', 'Question'],
-"  \ 'info':    ['fg', 'Label'],
-"  \ 'border':  ['bg', 'CursorLine'],
-"  \ 'prompt':  ['fg', 'Conditional'],
-"  \ 'pointer': ['fg', 'Special'],
-"  \ 'marker':  ['fg', 'Special'],
-"  \ 'spinner': ['fg', 'Speical'],
-"  \ 'header':  ['fg', 'Include'] }
-"
-"" fzf on the bottom 40% of the screen
-"let g:fzf_layout = { 'down': '40%' }
-"
-"nmap <Leader>t :Files<CR>
-"nmap <Leader>b :Buffers<CR>
 nmap <Leader>t :FzfLua files<CR>
 nmap <Leader>b :FzfLua buffers<CR>
 
-" Disable statusline for fzf terminal window as it is noisy.
-"if has('nvim')
-"  autocmd! FileType fzf
-"  autocmd FileType fzf set laststatus=0 noshowmode noruler | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-"endif
-" }}}
 
 " Load Lua configuration
 lua require('colors')
