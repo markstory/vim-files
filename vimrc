@@ -48,7 +48,7 @@ Plug 'mhartington/formatter.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 
 " Theme
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'sainnhe/edge'
 
 call plug#end()
 " }}}

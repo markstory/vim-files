@@ -3,14 +3,8 @@
 -- Default color scheme
 vim.g.noshowmode = true
 vim.g.termguicolors = true
+vim.cmd("set background=light")
 
--- Theme
---vim.cmd[[color base16_one_light]]
-vim.g.tokyonight_style = "day"
-vim.g.tokyonight_day_brightness = 0.2
---vim.g.tokyonight_transparent = 1
-vim.g.tokyonight_lualine_bold = 1
-vim.g.tokyonight_sidebars = { "fern" }
-vim.g.tokyonight_dark_sidebar = true
-
-vim.cmd[[colorscheme tokyonight]]
+-- Theme configuration
+vim.g.edge_enable_italic = 1
+vim.cmd("colorscheme edge")

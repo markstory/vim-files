@@ -1,42 +1,3 @@
--- lualine onelight theme.
-local colors = {
-  blue   = '#0184bc',
-  green  = '#50a14f',
-  purple = '#a626a4',
-  red   = '#ca1243',
-  yellow = '#c18401',
-  fg     = '#090a0b',
-  bg     = '#fafafa',
-  gray100  = '#f0f0f1',
-  gray200  = '#e5e5e6',
-  gray300  = '#a0a1a7',
-  gray400 = '#696c77',
-}
-
-onelight_theme = {
-  normal = {
-    a = {fg = colors.bg, bg = colors.green, gui = 'bold'},
-    b = {fg = colors.fg, bg = colors.gray200},
-    c = {fg = colors.fg, bg = colors.gray100}
-  },
-  insert = {a = {fg = colors.bg, bg = colors.blue, gui = 'bold'}},
-  visual = {a = {fg = colors.bg, bg = colors.purple, gui = 'bold'}},
-  replace = {a = {fg = colors.bg, bg = colors.red, gui = 'bold'}},
-  inactive = {
-    a = {fg = colors.gray400, bg = colors.gray100, gui = 'bold'},
-    b = {fg = colors.gray400, bg = colors.gray100},
-    c = {fg = colors.gray400, bg = colors.gray100}
-  }
-}
-
-light_muted = {
-  fg = colors.gray400,
-  bg = colors.gray100,
-}
-medium_muted = {
-  fg = colors.gray400,
-  bg = colors.gray200,
-}
 
 -- Custom mode map with short names.
 local get_mode = require('lualine.utils.mode').get_mode
@@ -54,8 +15,7 @@ end
 
 require('lualine').setup({
   options = {
-    --theme = onelight_theme,
-    theme = 'tokyonight',
+    theme = 'edge',
     section_separators = {'\u{E0B4}', '\u{E0B6}'},
     component_separators = {'\u{E0B5}', '\u{E0B7}'},
   },
@@ -65,7 +25,6 @@ require('lualine').setup({
     lualine_b = {
       {
         'branch',
-        color = medium_muted,
         icon = '\u{F126}',
       }
     },
@@ -73,7 +32,6 @@ require('lualine').setup({
       {
         'diff',
         colored = true,
-        color = light_muted,
         separator = '\u{E0B7}',
       },
       {
@@ -85,21 +43,17 @@ require('lualine').setup({
     lualine_x = {
       {
         'encoding',
-        color = light_muted,
       },
       {
         'fileformat',
-        color = light_muted,
       },
       {
         'filetype',
-        color = light_muted,
       }
     },
     lualine_y = {
       {
         'progress',
-        color = medium_muted,
       }
     }
   },
