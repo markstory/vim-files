@@ -32,7 +32,6 @@ require('lualine').setup({
       {
         'diff',
         colored = true,
-        separator = '\u{E0B7}',
       },
       {
         'filename',
