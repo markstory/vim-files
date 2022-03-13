@@ -77,7 +77,7 @@ local linters = {
     command = "vendor/bin/phpcs",
     sourceName = "phpcs",
     debounce = 300,
-    rootPatterns = {"composer.lock", "vendor", ".git"},
+    rootPatterns = {"composer.lock", "vendor"},
     args = {"--report=json", "--stdin-path=%filepath", "-s", "-"},
     sourceName = "phpcs",
     parseJson = {
@@ -90,8 +90,8 @@ local linters = {
       security = 'type',
     },
     securities = {
-      error = "error",
-      warning = "warning",
+      error = "ERROR",
+      warning = "WARNING",
     },
     requiredFiles = {"vendor/bin/phpcs"}
   },
