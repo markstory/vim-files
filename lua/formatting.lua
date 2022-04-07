@@ -24,14 +24,14 @@ formatter.setup {
     python = {
       function ()
         return {
-          exe = '~/.pyenv/shims/black',
+          exe = 'black',
           args = {"-"},
           stdin = true,
         }
       end,
       function ()
         return {
-          exe = '~/.pyenv/shims/isort',
+          exe = 'isort',
           args = {"-"},
           stdin = true,
         }
