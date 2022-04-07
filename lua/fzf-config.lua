@@ -6,7 +6,8 @@ require('fzf-lua').setup({
     col = 0.3,
   },
   files = {
-    cmd = "find -L . -type f",
+    cmd = "find -L .",
+    find_opts = [[-type f -not -path '*/\.git/*' -not -path '*/node_modules/*' -not -path 'vendor/*']],
     prompt = 'Files❯ ',
     multiprocess = true,
     file_icons = true,
