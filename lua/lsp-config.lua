@@ -1,42 +1,57 @@
 local nvim_lsp = require("lspconfig")
 
 -- Completion setup
-local compe = require("compe")
+local cmp = require("cmp")
 
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menu,menuone,noselect"
 
-compe.setup {
-  enabled = true;
-  autocomplete = true;
-  throttle_time = 200;
-  source_timeout = 150;
-  source = {
-    nvim_lsp = true;
-    nvim_lua = true;
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  completion = {
+    -- no automatic autocomplete. Manually trigger with C-space
+    autocomplete = false,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    -- Accept currently selected item. Set `select` to `false` 
+    -- to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- `/` and `:` cmdline setup
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
   }
-}
+})
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 
 -- short cut methods.
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
--- Close completion if the last char is .
-local check_back_space = function ()
-  local col = vim.fn.col('.') - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
-end
-
--- Global function used to send <C-n> to compe
--- if it is open, tab if it is closed, and compe refresh
--- if we're at a break.
-_G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif check_back_space() then
-    return t "<Tab>"
-  else
-    return vim.fn['compe#complete']()
-  end
 end
 
 -- Definition peek
@@ -56,8 +71,6 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-
   -- Hover
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -73,19 +86,26 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gr', "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
   -- View diagnostics
-  buf_set_keymap('n', '<space>e', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  buf_set_keymap('n', '<leader>e', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   buf_set_keymap('n', '[d', "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
   buf_set_keymap('n', ']d', "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-
-  -- Autocomplete
-  buf_set_keymap("i", "<C-Space>", 'compe#complete()', {noremap = true, silent = true, expr = true})
-  buf_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {noremap = true, silent = true, expr = true})
-  buf_set_keymap("i", "<Esc>", "compe#close('<Esc>')", {noremap = true, silent = true, expr = true})
-  buf_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 end
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
+
+-- flutter tools (lsp and command configuration)
+require("flutter-tools").setup({
+  lsp = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+})
 
 -- Typescript
 nvim_lsp.tsserver.setup {
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     -- Disable tsserver formatting as prettier/eslint does that.
     client.resolved_capabilities.document_formatting = false
@@ -94,13 +114,14 @@ nvim_lsp.tsserver.setup {
 }
 -- Python
 nvim_lsp.pyright.setup {
+  capabilities = capabilities,
   on_attach = on_attach,
 }
 -- PHP
 nvim_lsp.intelephense.setup {
+  capabilities = capabilities,
   on_attach = on_attach,
 }
-
 
 -- Make all LSP windows have consistent borders.
 local border = {

@@ -35,13 +35,22 @@ Plug 'groenewege/vim-less'
 Plug 'tpope/vim-markdown'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mitsuhiko/vim-jinja'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'akinsho/flutter-tools.nvim', {'branch': 'main'}
 
 " Improved syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+Plug 'hrsh7th/vim-vsnip'
+
 Plug 'mhartington/formatter.nvim'
 
 " Statusline
@@ -202,6 +211,9 @@ au BufNewFile,BufRead {*.mdx,*.lr,*.md} set ft=markdown
 " Lua
 au BufRead,BufNewFile *.lua set ft=lua
 
+" Dart
+au BufRead,BufNewFile *.dart set ft=dart
+
 " Make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=100 colorcolumn=99
 au FileType rst setl textwidth=80 colorcolumn=81 shiftwidth=4 softtabstop=4 tabstop=4
@@ -218,8 +230,8 @@ au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandt
 " markdown settings
 au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=79
 
-" Javascript, CSS, lua, and HTML settings
-au FileType {css,javascriptreact,typescriptreact,typescript,javascript,mustache,htmljinja,html,lua} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
+" Javascript, Typescript, CSS, lua, dart, and HTML settings
+au FileType {css,javascriptreact,typescriptreact,typescript,javascript,mustache,htmljinja,html,lua,dart} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
 
 " CoffeeScript, Elm, Docker
 au FileType {coffee,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
@@ -227,10 +239,6 @@ au FileType {coffee,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=
 " }}}
 
 " {{{ Keybindings
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
@@ -360,6 +368,7 @@ lua require('fzf-config')
 lua require('treesitter')
 lua require('lualine-config')
 lua require('diagnostics')
+lua require('flutter-tools').setup({})
 
 " Load vimrc in each directory that vim is opened in.
 " This provides 'per project' vim config.
