@@ -46,6 +46,16 @@ formatter.setup {
           ignore_exitcode = true,
         }
       end
+    },
+    dart = {
+      function ()
+        return {
+          exe = 'flutter format',
+          args = {vim.api.nvim_buf_get_name(0), '-l', '120'},
+          stdin = false,
+          ignore_exitcode = true,
+        }
+      end
     }
   }
 }

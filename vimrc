@@ -15,7 +15,7 @@ Plug 'duff/vim-scratch'
 Plug 'markstory/vim-zoomwin'
 
 " Project Drawer
-Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern.vim', {'branch': 'main'}
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
