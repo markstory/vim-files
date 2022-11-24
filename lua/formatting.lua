@@ -8,8 +8,8 @@ local eslint_fmt = {
   function()
     return {
       exe = "./node_modules/.bin/eslint",
-      args = {"--fix", "--stdin-filename", vim.api.nvim_buf_get_name(0)},
-      stdin = false,
+      args = {"--fix", vim.api.nvim_buf_get_name(0)},
+      ignore_exitcode = true,
     }
   end
 }
