@@ -201,7 +201,7 @@ au BufRead,BufNewFile *.twig,*.tpl set ft=htmljinja
 " Map *.coffee to coffee type
 au BufRead,BufNewFile *.coffee set ft=coffee
 
-" Highlight JSON & es6 like Javascript
+" Highlight es6 like Javascript
 au BufNewFile,BufRead {*.es6} set ft=javascript
 
 " hbs and mustache files.
@@ -232,8 +232,8 @@ au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandt
 " markdown settings
 au FileType markdown setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=79
 
-" Javascript, Typescript, CSS, lua, dart, and HTML settings
-au FileType {css,javascriptreact,typescriptreact,typescript,javascript,mustache,htmljinja,html,lua,dart} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
+" Javascript, Typescript, CSS, lua, json, dart, and HTML settings
+au FileType {json,css,javascriptreact,typescriptreact,typescript,javascript,mustache,htmljinja,html,lua,dart} setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=120
 
 " CoffeeScript, Elm, Docker
 au FileType {coffee,elm,dockerfile} setl textwidth=100 softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
