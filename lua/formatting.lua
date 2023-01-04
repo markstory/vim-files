@@ -15,7 +15,6 @@ local eslint_fmt = {
 }
 
 formatter.setup {
-  logging = true,
   filetype = {
     typescript = eslint_fmt,
     typescriptreact = eslint_fmt,

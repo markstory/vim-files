@@ -295,9 +295,6 @@ nnoremap dgb :diffget //3<CR>
 " Turn off Ex mode - I hate that thing.
 nnoremap Q <nop>
 
-" Apply formatting tools
-nnoremap <Leader>f :Format<CR>
-
 " }}}
 
 " {{{ Custom commands
