@@ -76,12 +76,14 @@ cmp.setup({
 
 -- `/` and `:` cmdline setup
 cmp.setup.cmdline('/', {
+  -- tab to start/select and Ctrl-y to select
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' }
   }
 })
 cmp.setup.cmdline(':', {
+  -- tab to start/select and Ctrl-y to select
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = 'path' }
