@@ -5,6 +5,34 @@ local cmp = require("cmp")
 
 vim.o.completeopt = "menu,menuone,noselect"
 
+-- Nerdfont icons for autocomplete.
+local kind_icons = {
+  Class = "ﴯ",
+  Color = "",
+  Constant = "",
+  Constructor = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
+  Field = "",
+  File = "",
+  Folder = "",
+  Function = "",
+  Interface = "",
+  Keyword = "",
+  Method = "",
+  Module = "",
+  Operator = "",
+  Property = "ﰠ",
+  Reference = "",
+  Snippet = "",
+  Struct = "",
+  Text = "",
+  TypeParameter = "",
+  Unit = "",
+  Value = "",
+  Variable = "",
+}
 
 cmp.setup({
   snippet = {
@@ -15,6 +43,19 @@ cmp.setup({
   completion = {
     -- no automatic autocomplete. Manually trigger with C-space
     autocomplete = false,
+  },
+  formatting = {
+    format = function (entry, vim_item)
+      -- format the trailing symbol and kind name.
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snip]",
+        nvim_lua = "[Lua]",
+      })[entry.source_name]
+      return vim_item
+    end
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -83,6 +124,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', "<cmd>lua lsp_peek_definition()<CR>", opts)
   buf_set_keymap('n', 'gs', "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'gr', "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
   -- View diagnostics

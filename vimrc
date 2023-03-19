@@ -289,8 +289,8 @@ map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
 " Diff mappings
-nnoremap dgh :diffget //2<CR>
-nnoremap dgb :diffget //3<CR>
+nnoremap dgl :diffget //2<CR>
+nnoremap dgr :diffget //3<CR>
 
 " Turn off Ex mode - I hate that thing.
 nnoremap Q <nop>
