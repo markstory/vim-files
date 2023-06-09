@@ -69,6 +69,16 @@ call plug#end()
 set number
 set relativenumber
 set ruler
+
+" Toggle between relative and absolute numbers
+" When a buffer loses focus switch to absolute number.
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
+" Enable syntax
 syntax on
 
 " Set encoding
