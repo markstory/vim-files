@@ -7,7 +7,7 @@ require('fzf-lua').setup({
   },
   files = {
     cmd = "find -L .",
-    find_opts = [[-type f -not -path '*.git*' -not -path '*/node_modules*' -not -path '*/vendor*' -not -path '*.venv*' -not -path '*.env/*]],
+    find_opts = [[-type f -not -path '*.git*' -not -path '*node_modules*' -not -path '*vendor*' -not -path '*.venv*' -not -path '*.env*' -not -path '*.mypy_cache*' -not -path '*.pytest_cache*']],
     prompt = 'Files❯ ',
     multiprocess = true,
     file_icons = true,
