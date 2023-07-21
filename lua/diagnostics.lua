@@ -2,9 +2,9 @@ local nvim_lsp = require("lspconfig")
 
 -- Gutter signs and highlights
 local signs = {
-  Error = '\u{F658}',
+  Error = '\u{F0159}',
   Warn = '\u{F071}',
-  Hint = '\u{F835}',
+  Hint = '\u{F0335}',
   Info = '\u{F05A}',
 }
 for type, icon in pairs(signs) do
