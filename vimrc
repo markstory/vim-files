@@ -44,6 +44,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvimtools/none-ls.nvim', {'branch': 'main'}
 Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
 Plug 'hrsh7th/cmp-path', {'branch': 'main'}
@@ -51,8 +52,6 @@ Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
 Plug 'hrsh7th/vim-vsnip'
-
-Plug 'mhartington/formatter.nvim'
 
 " Statusline
 Plug 'nvim-lualine/lualine.nvim'
@@ -327,6 +326,9 @@ cmap w!! w !sudo tee % >/dev/null
 :command Wiki :VimwikiIndex
 :command Diary :VimwikiDiaryIndex
 :command DiaryNote :VimwikiMakeDiaryNote
+
+" Apply null-ls formatters
+:command Format :lua vim.lsp.buf.format()
 " }}}
 
 " {{{ Plugin config
@@ -372,7 +374,6 @@ nmap <Leader>b :FzfLua buffers<CR>
 " Load Lua configuration
 lua require('colors')
 lua require('lsp-config')
-lua require('formatting')
 lua require('fzf-config')
 lua require('treesitter')
 lua require('lualine-config')
