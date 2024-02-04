@@ -28,14 +28,26 @@ vim.diagnostic.config({
 
 local nvimlint = require('lint')
 
--- configure php linters
-nvimlint.linters.phpcs.cmd = './vendor/bin/phpcs'
+local file_exists = function(path)
+  local exists = vim.fn.filereadable(path) == 1
+  return exists
+end
+
+-- PHP linter config varies by project
+local php_linters = {}
+if file_exists('./vendor/bin/phpcs') then
+  -- configure phpcs
+  nvimlint.linters.phpcs.cmd = './vendor/bin/phpcs'
+  table.insert(php_linters, 'phpcs')
+end
 
 -- Use either composer or phive tools.
 if vim.fn.filereadable('./tools/psalm') == 1 then
   nvimlint.linters.psalm.cmd = './tools/psalm'
+  table.insert(php_linters, 'psalm')
 elseif vim.fn.filereadable('./vendor/bin/psalm') == 1 then
   nvimlint.linters.psalm.cmd = './vendor/bin/psalm'
+  table.insert(php_linters, 'psalm')
 end
 
 -- Some projects use eslint, others use biome
@@ -54,9 +66,8 @@ nvimlint.linters_by_ft = {
   typescript = js_linters,
   typescriptreact = js_linters,
   python = {'flake8', 'mypy', },
-  php = {'phpcs', 'psalm', },
+  php = php_linters,
 }
-
 
 -- keymappings for diagnostics
 local opts = {noremap = true, silent = true}
@@ -71,113 +82,3 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
     nvimlint.try_lint()
   end
 })
-
-
-
---[[
---- Linter setup
-local filetypes = {
-  typescript = "eslint",
-  typescriptreact = "eslint",
-  python = "flake8",
-  php = {"phpcs", "psalm"},
-}
-
-local linters = {
-  eslint = {
-    sourceName = "eslint",
-    command = "./node_modules/.bin/eslint",
-    rootPatterns = {".eslintrc.js", "package.json"},
-    debouce = 100,
-    args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
-    parseJson = {
-      errorsRoot = "[0].messages",
-      line = "line",
-      column = "column",
-      endLine = "endLine",
-      endColumn = "endColumn",
-      message = "${message} [${ruleId}]",
-      security = "severity"
-    },
-    securities = {[2] = "error", [1] = "warning"}
-  },
-  flake8 = {
-    command = "flake8",
-    sourceName = "flake8",
-    args = {"--format", "%(row)d:%(col)d:%(code)s: %(text)s", "%file"},
-    formatPattern = {
-      "^(\\d+):(\\d+):(\\w+):(\\w).+: (.*)$",
-      {
-          line = 1,
-          column = 2,
-          message = {"[", 3, "] ", 5},
-          security = 4
-      }
-    },
-    securities = {
-      E = "error",
-      W = "warning",
-      F = "info",
-      B = "hint",
-    },
-  },
-  phpcs = {
-    command = "vendor/bin/phpcs",
-    sourceName = "phpcs",
-    debounce = 300,
-    rootPatterns = {"composer.lock", "vendor"},
-    args = {"--report=json", "--stdin-path=%filepath", "-s", "-"},
-    sourceName = "phpcs",
-    parseJson = {
-      errorsRoot =  'files.["%filepath"].messages',
-      line = 'line',
-      column = 'column',
-      endLine = 'line',
-      endColumn = 'column',
-      message = '[phpcs] ${message} [${source}]',
-      security = 'type',
-    },
-    securities = {
-      error = "ERROR",
-      warning = "WARNING",
-    },
-    requiredFiles = {"vendor/bin/phpcs"}
-  },
-  psalm = {
-    command = "vendor/bin/psalm.phar",
-    sourceName = "psalm",
-    debounce = 100,
-    rootPatterns = {"composer.lock", "vendor", ".git"},
-    args = {"--output-format=emacs", "--no-progress"},
-    offsetLine = 0,
-    offsetColumn = 0,
-    sourceName = "psalm",
-    formatLines = 1,
-    formatPattern = {
-      '^(.*):(\\d+):(\\d+):(.*)\\s-\\s(.*)$',
-      {
-        sourceName = 1,
-        sourceNameFilter = true,
-        line = 2,
-        column = 3,
-        message = 5,
-        security = 4
-      }
-    },
-    securities = {
-      error = "error",
-      warning = "warning"
-    },
-    requiredFiles = {"vendor/bin/psalm.phar"}
-  }
-}
-
-nvim_lsp.diagnosticls.setup {
-  on_attach = on_attach,
-  filetypes = vim.tbl_keys(filetypes),
-  init_options = {
-    filetypes = filetypes,
-    linters = linters,
-  },
-}
-]]--
