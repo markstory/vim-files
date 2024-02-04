@@ -26,7 +26,55 @@ vim.diagnostic.config({
   virtual_text = false,
 })
 
+local nvimlint = require('lint')
 
+-- configure php linters
+nvimlint.linters.phpcs.cmd = './vendor/bin/phpcs'
+
+-- Use either composer or phive tools.
+if vim.fn.filereadable('./tools/psalm') == 1 then
+  nvimlint.linters.psalm.cmd = './tools/psalm'
+elseif vim.fn.filereadable('./vendor/bin/psalm') == 1 then
+  nvimlint.linters.psalm.cmd = './vendor/bin/psalm'
+end
+
+-- Some projects use eslint, others use biome
+js_linters = {}
+if vim.fn.filereadable('./node_modules/.bin/eslint') == 1 then
+  table.insert(js_linters, 'eslint')
+end
+if vim.fn.filereadable('./node_modules/.bin/biome') == 1 then
+  table.insert(js_linters, 'biomejs')
+end
+
+-- Configure linters for common toolchains
+nvimlint.linters_by_ft = {
+  javascript = js_linters,
+  javascriptreact = js_linters,
+  typescript = js_linters,
+  typescriptreact = js_linters,
+  python = {'flake8', 'mypy', },
+  php = {'phpcs', 'psalm', },
+}
+
+
+-- keymappings for diagnostics
+local opts = {noremap = true, silent = true}
+local keymap = vim.api.nvim_set_keymap
+
+keymap('n', '<leader>e', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap('n', '[d', "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+keymap('n', ']d', "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+
+vim.api.nvim_create_autocmd({'BufWritePost'}, {
+  callback = function()
+    nvimlint.try_lint()
+  end
+})
+
+
+
+--[[
 --- Linter setup
 local filetypes = {
   typescript = "eslint",
@@ -132,3 +180,4 @@ nvim_lsp.diagnosticls.setup {
     linters = linters,
   },
 }
+]]--

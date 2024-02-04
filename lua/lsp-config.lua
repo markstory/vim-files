@@ -128,11 +128,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'gr', "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-
-  -- View diagnostics
-  buf_set_keymap('n', '<leader>e', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  buf_set_keymap('n', '[d', "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-  buf_set_keymap('n', ']d', "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(
@@ -155,11 +150,6 @@ nvim_lsp.tsserver.setup {
     client.server_capabilities.document_formatting = false
     on_attach(client, bufnr)
   end
-}
--- Python
-nvim_lsp.pyright.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
 }
 -- PHP
 nvim_lsp.intelephense.setup {

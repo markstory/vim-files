@@ -4,7 +4,14 @@
 -- Formatting can be run via :Format
 local formatter = require('formatter')
 
-local eslint_fmt = {
+local js_fmt = {
+  function()
+    return {
+      exe = "./node_modules/.bin/biome",
+      args = {"format", "--write", vim.api.nvim_buf_get_name(0)},
+      ignore_exitcode = true,
+    }
+  end,
   function()
     return {
       exe = "./node_modules/.bin/eslint",
@@ -16,10 +23,10 @@ local eslint_fmt = {
 
 formatter.setup {
   filetype = {
-    typescript = eslint_fmt,
-    typescriptreact = eslint_fmt,
-    javascript = eslint_fmt,
-    javascriptreact = eslint_fmt,
+    typescript = js_fmt,
+    typescriptreact = js_fmt,
+    javascript = js_fmt,
+    javascriptreact = js_fmt,
     python = {
       function ()
         return {
