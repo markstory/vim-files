@@ -156,6 +156,11 @@ nvim_lsp.intelephense.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
+-- python
+nvim_lsp.pyright.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
 
 -- Make all LSP windows have consistent borders.
 local border = {
