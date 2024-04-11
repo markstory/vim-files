@@ -161,6 +161,12 @@ nvim_lsp.pyright.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
+-- rust
+nvim_lsp.rust_analyzer.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
 
 -- Make all LSP windows have consistent borders.
 local border = {

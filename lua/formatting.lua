@@ -62,6 +62,16 @@ formatter.setup {
           ignore_exitcode = true,
         }
       end
-    }
+    },
+    rust = {
+      function ()
+        return {
+          exe = 'cargo fmt',
+          args = {'--', vim.api.nvim_buf_get_name(0)},
+          stdin = false,
+          ignore_exitcode = true,
+        }
+      end
+    },
   }
 }
