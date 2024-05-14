@@ -36,7 +36,6 @@ Plug 'tpope/vim-markdown'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'akinsho/flutter-tools.nvim', {'branch': 'main'}
 
 " Improved syntax highlighting
