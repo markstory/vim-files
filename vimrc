@@ -231,8 +231,8 @@ au BufRead,BufNewFile *.dart set ft=dart
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=100 colorcolumn=99
 au FileType rst setl textwidth=80 colorcolumn=81 shiftwidth=4 softtabstop=4 tabstop=4
 
-" Make ruby,scss,sass,less use 2 spaces for indentation.
-au FileType {cucumber,yaml,sass,scss,ruby,eruby,less} setl softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
+" Make ruby,scss,sass,less,proto use 2 spaces for indentation.
+au FileType {cucumber,yaml,sass,scss,ruby,eruby,less,proto} setl softtabstop=2 shiftwidth=2 tabstop=2 colorcolumn=100
 
 " php settings
 au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=120
