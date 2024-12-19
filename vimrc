@@ -369,6 +369,10 @@ endif
 nmap <Leader>t :FzfLua files<CR>
 nmap <Leader>b :FzfLua buffers<CR>
 
+" improve python file open on work computer.
+let g:python_host_prog  = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+
 
 " Load Lua configuration
 lua require('colors')
