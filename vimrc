@@ -51,6 +51,8 @@ Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
 Plug 'hrsh7th/vim-vsnip'
 
+Plug 'github/copilot.vim', {'branch': 'release'}
+
 " Formatting & Linting
 Plug 'mfussenegger/nvim-lint'
 Plug 'mhartington/formatter.nvim'
@@ -368,6 +370,7 @@ else
 endif
 nmap <Leader>t :FzfLua files<CR>
 nmap <Leader>b :FzfLua buffers<CR>
+nmap <Leader>g :FzfLua grep<CR>
 
 " improve python file open on work computer.
 let g:python_host_prog  = '/usr/bin/python2'
