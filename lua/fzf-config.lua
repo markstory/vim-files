@@ -14,7 +14,16 @@ require('fzf-lua').setup({
     file_icons = true,
     color_icons = true,
   },
-  buffers = {
-    fzf_colors = true,
+  hls = {
+    -- current buffer sigil
+    buf_flag_cur = "Purple",
+    -- buffer number id
+    buf_nr = "Cyan",
+    -- line numbers in buffer/path windows
+    path_linenr = "Cyan",
+    -- ctrl-x prompt
+    header_bind = "Cyan",
+    -- action binding takes
+    header_text = "CursorLineNr",
   }
 })
