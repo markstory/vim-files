@@ -376,6 +376,13 @@ nmap <Leader>g :FzfLua grep<CR>
 let g:python_host_prog  = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
+" copilot
+" Disable copilot for prose files as it is annoying
+let g:copilot_filetypes = {
+    \ 'vimwiki': v:false,
+    \ 'markdown': v:false,
+    \ 'textile': v:false,
+    \}
 
 " Load Lua configuration
 lua require('colors')
