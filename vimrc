@@ -211,6 +211,9 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 " Map .twig files as jinja templates
 au BufRead,BufNewFile *.twig,*.tpl,*.jinja set ft=htmljinja
 
+" Map .j2 files as jinja
+au BufRead,BufNewFile *.j2 set ft=jinja
+
 " Map *.coffee to coffee type
 au BufRead,BufNewFile *.coffee set ft=coffee
 
