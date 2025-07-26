@@ -12,9 +12,7 @@ deps:
 
 
 symlink:
-	ln -sf ~+/vimrc ~/.vimrc
-	ln -sf ~+/gvimrc ~/.gvimrc
+	ln -sf ~/.vim/init.vim ~/.vimrc
+	ln -sf ~/.vim/gvimrc ~/.gvimrc
 	# Create neovim config
-	mkdir -p ~/.config
-	ln -sf ~+ ~/.config/nvim
-	ln -sf ~+/vimrc ~/.config/nvim/init.vim
+	ln -s ~/.vim ~/.config/nvim
