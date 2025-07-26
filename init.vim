@@ -18,6 +18,7 @@ Plug 'markstory/vim-zoomwin'
 Plug 'lambdalisue/fern.vim', {'branch': 'main'}
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " Search and find
 Plug 'mileszs/ack.vim'
