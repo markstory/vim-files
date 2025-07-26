@@ -23,5 +23,5 @@ Most syntax highlighting plugins have been replace with Treesitter packages.
 However, I don't have a good way to install these automatically yet.
 
 ```
-:TSInstall bash css dockerfile hcl javascript json html lua php python rst scss toml tsx typescript yaml
+:TSInstall bash css dart dockerfile hcl javascript json html lua php python rst rust scss toml tsx typescript yaml
 ```
