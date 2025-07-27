@@ -1,21 +1,18 @@
 local nvim_lsp = require("lspconfig")
 
--- Gutter signs and highlights
-local signs = {
-  Error = '\u{F530}',
-  Warn = '\u{f071}',
-  Hint = '\u{f059}',
-  Info = '\u{f05a}',
-}
-for type, icon in pairs(signs) do
-  local hl = 'DiagnosticSign' .. type
-  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ''})
-end
 
 -- configure vim.diagnostics
 vim.diagnostic.config({
   underline = true,
-  signs = true,
+  signs = {
+    text = {
+      -- Gutter signs use devicons
+      [vim.diagnostic.severity.ERROR] = '\u{F530}',
+      [vim.diagnostic.severity.WARN] = '\u{f071}',
+      [vim.diagnostic.severity.HINT] = '\u{f059}',
+      [vim.diagnostic.severity.INFO] = '\u{f05a}',
+    }
+  },
   update_in_insert = false,
   severity_sort = true,
   float = {
