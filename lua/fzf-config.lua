@@ -8,7 +8,7 @@ require('fzf-lua').setup({
   },
   files = {
     fzf_colors = true,
-    find_opts = [[-type f -not -path '*.git/objects*' -not -path '*node_modules*' -not -path '*vendor*' -not -path '*.venv*' -not -path '*.env*' -not -path '*.pytest_cache*' -not -path '*.mypy_cache*']],
+    find_opts = [[-type f -not -path '*.git/objects*' -not -path '*node_modules*' -not -path '*vendor*' -not -path '*.venv*' -not -path '*.env*' -not -path '*.pytest_cache*' -not -path '*.mypy_cache*' -not -path "*.devenv*"]],
     prompt = 'Files❯ ',
     multiprocess = true,
     file_icons = true,
