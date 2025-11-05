@@ -159,6 +159,9 @@ nvim_lsp.intelephense.setup {
 }
 -- python
 nvim_lsp.pyright.setup {
+  cmd_env = {
+    NODE_OPTIONS = "--max-old-space-size=4096",
+  },
   capabilities = capabilities,
   on_attach = on_attach,
 }
