@@ -52,8 +52,6 @@ Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
 Plug 'hrsh7th/vim-vsnip'
 
-Plug 'github/copilot.vim', {'branch': 'release'}
-
 " Formatting & Linting
 Plug 'mfussenegger/nvim-lint'
 Plug 'mhartington/formatter.nvim'
@@ -390,7 +388,7 @@ let g:copilot_filetypes = {
 
 " Load Lua configuration
 lua require('colors')
-lua require('lsp-config')
+lua require('lsp-setup')
 lua require('formatting')
 lua require('fzf-config')
 lua require('treesitter')

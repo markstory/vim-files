@@ -1,4 +1,4 @@
-local nvim_lsp = require("lspconfig")
+local nvim_lsp = vim.lsp.config
 
 -- Completion setup
 local cmp = require("cmp")
@@ -144,33 +144,35 @@ require("flutter-tools").setup({
 })
 
 -- Typescript
-nvim_lsp.ts_ls.setup {
+vim.lsp.config('ts_ls', {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     -- Disable tsserver formatting as prettier/eslint does that.
     client.server_capabilities.document_formatting = false
     on_attach(client, bufnr)
   end
-}
+})
+
 -- PHP
-nvim_lsp.intelephense.setup {
+vim.lsp.config('intelephense', {
   capabilities = capabilities,
   on_attach = on_attach,
-}
+})
+-- rust
+vim.lsp.config('rust_analyzer', {
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
 -- python
-nvim_lsp.pyright.setup {
+vim.lsp.config('pyright', {
   cmd_env = {
     NODE_OPTIONS = "--max-old-space-size=4096",
   },
   capabilities = capabilities,
   on_attach = on_attach,
-}
--- rust
-nvim_lsp.rust_analyzer.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+})
 
+vim.lsp.enable({'pyright', 'rust_analyzer', 'intelephense', 'ts_ls'})
 
 -- Make all LSP windows have consistent borders.
 local border = {
