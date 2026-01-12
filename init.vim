@@ -55,6 +55,7 @@ Plug 'hrsh7th/vim-vsnip'
 " Formatting & Linting
 Plug 'mfussenegger/nvim-lint'
 Plug 'mhartington/formatter.nvim'
+Plug 'editorconfig/editorconfig-vim'
 
 " Statusline
 Plug 'nvim-lualine/lualine.nvim'
@@ -378,13 +379,8 @@ nmap <Leader>g :FzfLua grep<CR>
 let g:python_host_prog  = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
-" copilot
-" Disable copilot for prose files as it is annoying
-let g:copilot_filetypes = {
-    \ 'vimwiki': v:false,
-    \ 'markdown': v:false,
-    \ 'textile': v:false,
-    \}
+" Editorconfig plugin "
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Load Lua configuration
 lua require('colors')
