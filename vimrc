@@ -342,6 +342,8 @@ cmap w!! w !sudo tee % >/dev/null
 let g:fern#renderer = "nerdfont"
 map <Leader>n :Fern . -drawer<CR>
 map <Leader>nr :Fern . -drawer -reveal=%<CR>
+" Show hidden files by default
+let g:fern#default_hidden = 1
 
 " Format fern windows.
 autocmd FileType fern set nonumber signcolumn=no
