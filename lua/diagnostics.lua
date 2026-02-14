@@ -38,22 +38,19 @@ if file_exists('./vendor/bin/phpcs') then
   table.insert(php_linters, 'phpcs')
 end
 
--- Use either composer or phive tools.
-if vim.fn.filereadable('./tools/psalm') == 1 then
-  nvimlint.linters.psalm.cmd = './tools/psalm'
-  table.insert(php_linters, 'psalm')
-elseif vim.fn.filereadable('./vendor/bin/psalm') == 1 then
-  nvimlint.linters.psalm.cmd = './vendor/bin/psalm'
-  table.insert(php_linters, 'psalm')
+-- Use either composer or phive tools for phpstan
+if vim.fn.filereadable('./tools/phpstan') == 1 then
+  nvimlint.linters.psalm.cmd = './tools/phpstan'
+  table.insert(php_linters, 'phpstan')
+elseif vim.fn.filereadable('./vendor/bin/phpstan') == 1 then
+  nvimlint.linters.psalm.cmd = './vendor/bin/phpstan'
+  table.insert(php_linters, 'phpstan')
 end
 
--- Some projects use eslint, others use biome
+-- Use eslint for js if it exists.
 js_linters = {}
 if vim.fn.filereadable('./node_modules/.bin/eslint') == 1 then
   table.insert(js_linters, 'eslint')
-end
-if vim.fn.filereadable('./node_modules/.bin/biome') == 1 then
-  table.insert(js_linters, 'biomejs')
 end
 
 -- Configure linters for common toolchains
@@ -62,7 +59,7 @@ nvimlint.linters_by_ft = {
   javascriptreact = js_linters,
   typescript = js_linters,
   typescriptreact = js_linters,
-  python = {'flake8', 'mypy', },
+  python = {'ruff', 'mypy', },
   php = php_linters,
 }
 
