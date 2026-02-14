@@ -7,13 +7,6 @@ local formatter = require('formatter')
 local js_fmt = {
   function()
     return {
-      exe = "./node_modules/.bin/biome",
-      args = {"format", "--write", vim.api.nvim_buf_get_name(0)},
-      ignore_exitcode = true,
-    }
-  end,
-  function()
-    return {
       exe = "./node_modules/.bin/eslint",
       args = {"--fix", vim.api.nvim_buf_get_name(0)},
       ignore_exitcode = true,
@@ -30,15 +23,8 @@ formatter.setup {
     python = {
       function ()
         return {
-          exe = 'black',
-          args = {"-"},
-          stdin = true,
-        }
-      end,
-      function ()
-        return {
-          exe = 'isort',
-          args = {"-"},
+          exe = 'uv run ruff',
+          args = {"format", "-q", "-"},
           stdin = true,
         }
       end
