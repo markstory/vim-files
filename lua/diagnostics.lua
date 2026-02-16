@@ -61,6 +61,7 @@ nvimlint.linters_by_ft = {
   typescriptreact = js_linters,
   python = {'ruff', 'mypy', },
   php = php_linters,
+  rust = {'clippy', },
 }
 
 -- keymappings for diagnostics
