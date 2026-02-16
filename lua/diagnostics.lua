@@ -40,10 +40,10 @@ end
 
 -- Use either composer or phive tools for phpstan
 if vim.fn.filereadable('./tools/phpstan') == 1 then
-  nvimlint.linters.psalm.cmd = './tools/phpstan'
+  nvimlint.linters.phpstan.cmd = './tools/phpstan'
   table.insert(php_linters, 'phpstan')
 elseif vim.fn.filereadable('./vendor/bin/phpstan') == 1 then
-  nvimlint.linters.psalm.cmd = './vendor/bin/phpstan'
+  nvimlint.linters.phpstan.cmd = './vendor/bin/phpstan'
   table.insert(php_linters, 'phpstan')
 end
 
