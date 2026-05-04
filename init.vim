@@ -2,70 +2,8 @@
 "
 set nocompatible
 
-" {{{ Plugin installation
-call plug#begin()
-
-" Text manipulation
-Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'Townk/vim-autoclose'
-
-Plug 'duff/vim-scratch'
-Plug 'markstory/vim-zoomwin'
-
-" Project Drawer
-Plug 'lambdalisue/fern.vim', {'branch': 'main'}
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-Plug 'nvim-tree/nvim-web-devicons'
-
-" Search and find
-Plug 'mileszs/ack.vim'
-Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
-
-" Commenting, Git and Wiki
-Plug 'ddollar/nerdcommenter'
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-fugitive'
-Plug 'vimwiki/vimwiki'
-
-" Languages
-Plug 'timcharper/textile.vim'
-Plug 'groenewege/vim-less'
-Plug 'tpope/vim-markdown'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'mitsuhiko/vim-jinja'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'akinsho/flutter-tools.nvim', {'branch': 'main'}
-
-" Improved syntax highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
-Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
-Plug 'hrsh7th/cmp-path', {'branch': 'main'}
-Plug 'hrsh7th/cmp-cmdline', {'branch': 'main'}
-Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
-Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
-Plug 'hrsh7th/vim-vsnip'
-
-" Formatting & Linting
-Plug 'mfussenegger/nvim-lint'
-Plug 'mhartington/formatter.nvim'
-Plug 'editorconfig/editorconfig-vim'
-
-" Statusline
-Plug 'nvim-lualine/lualine.nvim'
-
-" Theme
-Plug 'sainnhe/edge'
-
-call plug#end()
-" }}}
-
+" Load Packages
+lua require('packages')
 
 " {{{ Window and editor setup
 " Display line numbers and rulers.
